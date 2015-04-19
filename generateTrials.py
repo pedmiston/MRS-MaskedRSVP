@@ -82,7 +82,7 @@ def main(trialsFileName, seed):
     distractorList = distractors.picFile.tolist()
     random.shuffle(distractorList)
 
-    trialList = open(trialsFileName + '.csv', 'w')
+    trialList = open('trials_' + trialsFileName + '.csv', 'w')
     header = listToLine(curTrial.keys())
     trialList.write(header)
 

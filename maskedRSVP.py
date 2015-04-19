@@ -8,47 +8,38 @@
 import time
 from baseDefsPsychoPy import *
 from stimPresPsychoPy import *
-import generateTrialsv2
+import generateTrials
 
+from util.dynamicmask import DynamicMask
 
 class Exp:
 	def __init__(self):
-	
+
 		#this is where the subject variables go.  'any' means any value is allowed as long as it's the correct type (str, int, etc.) the numbers 1 and 2 control the order in which the prompts are displayed (dicts have no natural order)
-		self.optionList = {	'1':  {	'name' : 'subjCode', 
-									'prompt' : 'Subject Code: ', 
-									'options': 'any', 
+		self.optionList = {	'1':  {	'name' : 'subjCode',
+									'prompt' : 'Subject Code: ',
+									'options': 'any',
 									'default':'rsvpTDCS_101',
-									'type' : str}, 
-							'2' : {	'name' : 'gender', 
-									'prompt' : 'Subject Gender m/f: ', 
+									'type' : str},
+							'2' : {	'name' : 'gender',
+									'prompt' : 'Subject Gender m/f: ',
 									'options' : ("m","f"),
 									'default':'',
 									'type' : str},
-							'3' : {	'name' : 'responseDevice', 
-									'prompt' : 'Response device: keyboard/gamepad: ', 
+							'3' : {	'name' : 'responseDevice',
+									'prompt' : 'Response device: keyboard/gamepad: ',
 									'options' : ("keyboard","gamepad"),
 									'default':'gamepad',
 									'type' : str},
-							'4' : {	'name' : 'electrode', 
-									'prompt' : 'Electrode: c/a/na: ', 
-									'options' : ('c','a','na'),
-									'default':'na',
-									'type' : str},
-							'5' : {	'name' : 'sham', 
-									'prompt' : 'Active stim? y/n/na: ', 
-									'options' : ('y','n','na'),
-									'default':'na',
-									'type' : str},
-							'6' : {	'name' : 'seed', 
-									'prompt' : 'Enter seed: ', 
-									'options' : 'any', 
+							'4' : {	'name' : 'seed',
+									'prompt' : 'Enter seed: ',
+									'options' : 'any',
 									'default':100,
 									'type' : int},
-							'7' : {	'name' : 'expInitials', 
-									'prompt' : 'Experiment Initials: ', 
-									'options' : 'any', 
-									'default' : '', 
+							'5' : {	'name' : 'expInitials',
+									'prompt' : 'Experiment Initials: ',
+									'options' : 'any',
+									'default' : '',
 									'type' : str}
 								}
 
@@ -67,8 +58,8 @@ class Exp:
 					fileOpened=True
 			except:
 				pass
-		generateTrialsv2.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
-			
+		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
+
 		if self.subjVariables['responseDevice']=='gamepad':
 			try:
 				self.stick=initGamepad()
@@ -84,40 +75,35 @@ class Exp:
 			self.inputDevice = "keyboard"
 			self.validResponses = {'1':'up','0':'down'} #change n/o to whatever keys you want to use
 			responseInfo = " Press the 'up arrow' for 'Yes' and the down arrow' for 'No'."
-			
-		try:
-			#self.win = visual.Window([800,800], color=[.6,.6,.6], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
-			self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
-			#self.win = visual.Window([1920,1080],pos=[1440,0], color=[.6,.6,.6], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
-		except:
-			self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
+
+		self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
 
 		self.preFixationDelay  = 	0.500
 		self.postFixationDelay  = 	0.500
 		self.numPracticeTrials = 3
-		self.takeBreakEveryXTrials = 100; 
+		self.takeBreakEveryXTrials = 100;
 		self.finalText              = "You've come to the end of the experiment.  Thank you for participating."
 		self.instructions		= \
-		"""Thank you for participating \nIn this experiment you will see a series of pictures. The first picture you will see (in a green frame) is the target you will be searching for. \n\n You will then see a stream of new images. Sometimes, in this stream, there will be a picture that *exactly* matches the target you saw in the green frame. 
-		Other times, none of the pictures will match the target exactly. After you see each series of pictures, your task is to decide if you saw the picture in the green frame or not. If you saw the picture you should press the button for "yes". \n The first few will be practice. On these, if you make a mistake, you will hear a buzzing sound.  
-		\n\nPlease let the experimenter know if you have any questions. 
+		"""Thank you for participating \nIn this experiment you will see a series of pictures. The first picture you will see (in a green frame) is the target you will be searching for. \n\n You will then see a stream of new images. Sometimes, in this stream, there will be a picture that *exactly* matches the target you saw in the green frame.
+		Other times, none of the pictures will match the target exactly. After you see each series of pictures, your task is to decide if you saw the picture in the green frame or not. If you saw the picture you should press the button for "yes". \n The first few will be practice. On these, if you make a mistake, you will hear a buzzing sound.
+		\n\nPlease let the experimenter know if you have any questions.
 		"""
-	
+
 		self.instructions+=responseInfo
 
 		self.takeBreak = "Please take a short break.  Press 'Enter' when you are ready to continue"
 		self.practiceTrials = "The next part is practice"
 		self.realTrials = "Now for the real trials"
-			
+
 class trial(Exp):
 	def __init__(self):
 		firstStim=''
-	
+
 class ExpPresentation(trial):
 	def __init__(self,experiment):
 		self.experiment = experiment
 
-	def initializeExperiment(self):	
+	def initializeExperiment(self):
 		# Experiment Clocks
 		self.expTimer = core.Clock()
 		"""This loads all the stimili and initializes the trial sequence"""
@@ -126,33 +112,52 @@ class ExpPresentation(trial):
 		self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
 
 		self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
-		
+
 		self.testPrompt = newText(self.experiment.win,"?",pos=[0,0],color="black",scale=1.6)
-		
+
 		showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
 		self.pictureMatrix = loadFiles('stimuli','jpg','image',self.experiment.win)
 		if prefs.general['audioLib'] == ['pygame']:
 			self.soundMatrix = loadFiles('stimuli',['wav'], 'winSound')
 		else:
 			self.soundMatrix = loadFiles('stimuli',['wav'], 'sound')
-		(self.trialListMatrix,self.fieldNames) = importTrials('trialList_test_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
+		(self.trialListMatrix,self.fieldNames) = importTrials('trials_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
 		self.stim = visual.PatchStim(self.experiment.win,mask="none",tex="none")
+
+		# add dynamic mask
+		mask_size = (320, 320)
+		self.dynamic_mask = DynamicMask(win = self.experiment.win, size = mask_size)
+
 	def checkExit(self): #I don't think this works if gamepad is in use
 		if event.getKeys()==['equal','equal']:
-			sys.exit("Exiting experiment")	
+			sys.exit("Exiting experiment")
+
+	def presentVisualInterference(self, duration = 0.2):
+		MASK_REFRESH = 0.0083 * 4
+		timer = core.clock()
+		startTime = timer.getTime()
+		while timer.getTime() - startTime < duration:
+			self.dynamic_mask.draw()
+			self.experiment.win.flip()
+			core.wait(MASK_REFRESH)
 
 	def presentTestTrial(self,whichPart,curTrial,curTrialIndex):
-		
+
 		self.checkExit() #check for exit press the equals key twice.
 		self.experiment.win.flip()
 		setAndPresentStimulus(self.experiment.win,[self.fixSpot]) #show fixation cross
-		core.wait(self.experiment.preFixationDelay) 
+		core.wait(self.experiment.preFixationDelay)
+
 		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.fixSpot]) #show blank frame w/ fixation
 		core.wait(self.experiment.postFixationDelay)
-		
-		#the target
+
+		# if whenTarget == 'before', show the target text here
 		setAndPresentStimulus(self.experiment.win,[self.targetRectOuter, self.rectInner, self.pictureMatrix[curTrial['targetPic']][0]]) #show target
 		core.wait(1.0)
+
+		# if isMask and whenMask == 'before', show the mask here
+		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'before':
+			self.presentVisualInterference()
 
 		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner]) #frame only
 		core.wait(1.5)
@@ -161,27 +166,35 @@ class ExpPresentation(trial):
 		for curPic in range(6): #this should not be hardcoded
 			for i in range(numFrames):
 				setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.pictureMatrix[curTrial['picFile'+str(curPic+1)]][0]]) #show one of RSVP stream images
-			
+
+		# if isMask and whenMask == 'after', show the mask here
+		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'after':
+			self.presentVisualInterference()
+
+		# if whenTarget == 'after', show the target text here
 		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.testPrompt]) #show prompt
-		
+
 		#correctResp = self.experiment.validResponses[str(curTrial['isMatch'])]
 		correctResp = str(curTrial['isMatch'])
 		if self.experiment.inputDevice=='keyboard':
 			(response,rt) = getKeyboardResponse(self.experiment.validResponses.values())
 		elif self.experiment.inputDevice=='gamepad':
 			(response,rt) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
-		
-		print response,rt 
+
+		print response,rt
 		isRight = int(self.experiment.validResponses[correctResp]==response)
-		
+
 		if isRight:
 			playAndWait(self.soundMatrix['bleep'])
 		else:
 			playAndWait(self.soundMatrix['buzz'])
-	
+
+
+		# if targetPresent, show 2AFC task here:
+
 		self.experiment.win.flip()
 		fieldVars=[]
-		
+
 		for curField in self.fieldNames:
 			fieldVars.append(curTrial[curField])
 		[header, curLine] = createRespNew(self.experiment.optionList,self.experiment.subjVariables,self.fieldNames,fieldVars,
@@ -214,7 +227,7 @@ class ExpPresentation(trial):
 				curTrialIndex+=1
 			#close test file
 			self.experiment.outputFileTest.close()
-			
+
 currentExp = Exp()
 currentPresentation = ExpPresentation(currentExp)
 currentPresentation.initializeExperiment()
