@@ -1,11 +1,4 @@
 #!/usr/bin/env python
-
-
-############################
-#  Import various modules  #
-############################
-
-import time
 from baseDefsPsychoPy import *
 from stimPresPsychoPy import *
 import generateTrials
@@ -54,7 +47,7 @@ class Exp:
 					fileOpened=False
 					popupError('Error: That subject code already exists')
 				else:
-					self.outputFileTest 	= file(self.subjVariables['subjCode']+'_test.txt','w')
+					self.outputFileTest = file(self.subjVariables['subjCode']+'_test.txt','w')
 					fileOpened=True
 			except:
 				pass
@@ -113,15 +106,28 @@ class ExpPresentation(trial):
 
 		self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
 
-		self.testPrompt = newText(self.experiment.win,"?",pos=[0,0],color="black",scale=1.6)
+		self.namePrompt = newText(self.experiment.win, "", pos=[200, 0],
+				color = "black", scale = 1.6)
+		self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
+				color = "black", scale = 1.6)
 
 		showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
-		self.pictureMatrix = loadFiles('stimuli','jpg','image',self.experiment.win)
+
+		audioFeedbackDir = Path('stimuli', 'sounds')
 		if prefs.general['audioLib'] == ['pygame']:
-			self.soundMatrix = loadFiles('stimuli',['wav'], 'winSound')
+			self.soundMatrix = loadFiles(audioFeedbackDir, ['wav'], 'winSound')
 		else:
-			self.soundMatrix = loadFiles('stimuli',['wav'], 'sound')
-		(self.trialListMatrix,self.fieldNames) = importTrials('trials_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
+			self.soundMatrix = loadFiles(audioFeedbackDir, ['wav'], 'sound')
+
+		subjTrialsFile = 'trials_' + self.experiment.subjVariables['subjCode'] + '.csv'
+		(self.trialListMatrix,self.fieldNames) = importTrials(subjTrialsFile, method="sequential")
+
+		targets = loadFiles(Path('stimuli', 'images', 'targets'), 'jpg', 'image', self.experiment.win)
+		distractors = loadFiles(Path('stimuli', 'images', 'distractors'), 'jpg', 'image', self.experiment.win)
+
+		self.pictureMatrix = targets
+		self.pictureMatrix.update(distractors)
+
 		self.stim = visual.PatchStim(self.experiment.win,mask="none",tex="none")
 
 		# add dynamic mask
@@ -141,10 +147,12 @@ class ExpPresentation(trial):
 			self.experiment.win.flip()
 			core.wait(MASK_REFRESH)
 
-	def presentTestTrial(self,whichPart,curTrial,curTrialIndex):
-
+	def presentTestTrial(self, whichPart, curTrial, curTrialIndex):
 		self.checkExit() #check for exit press the equals key twice.
 		self.experiment.win.flip()
+
+		self.namePrompt.setText(curTrial['targetName'])
+
 		setAndPresentStimulus(self.experiment.win,[self.fixSpot]) #show fixation cross
 		core.wait(self.experiment.preFixationDelay)
 
@@ -152,8 +160,12 @@ class ExpPresentation(trial):
 		core.wait(self.experiment.postFixationDelay)
 
 		# if whenTarget == 'before', show the target text here
-		setAndPresentStimulus(self.experiment.win,[self.targetRectOuter, self.rectInner, self.pictureMatrix[curTrial['targetPic']][0]]) #show target
-		core.wait(1.0)
+		textTimeWhenTargetBefore = 1.0
+		stimToShow = list()
+		if curTrial['whenTarget'] == 'before':
+			stimToShow += self.namePrompt
+		setAndPresentStimulus(self.experiment.win, stimToShow)
+		core.wait(textTimeWhenTargetBefore)
 
 		# if isMask and whenMask == 'before', show the mask here
 		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'before':
@@ -172,25 +184,46 @@ class ExpPresentation(trial):
 			self.presentVisualInterference()
 
 		# if whenTarget == 'after', show the target text here
-		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.testPrompt]) #show prompt
+		stimToShow = [self.testPrompt, ]
+		if curTrial['whenTarget'] == 'after':
+			stimToShow += self.namePrompt
+		setAndPresentStimulus(self.experiment.win, stimToShow)
 
-		#correctResp = self.experiment.validResponses[str(curTrial['isMatch'])]
-		correctResp = str(curTrial['isMatch'])
+		correctResp = str(curTrial['isTargetPresent'])
 		if self.experiment.inputDevice=='keyboard':
 			(response,rt) = getKeyboardResponse(self.experiment.validResponses.values())
 		elif self.experiment.inputDevice=='gamepad':
 			(response,rt) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
 
 		print response,rt
-		isRight = int(self.experiment.validResponses[correctResp]==response)
+		isTargetPresentCorrect = int(self.experiment.validResponses[correctResp]==response)
 
-		if isRight:
+		if isTargetPresentCorrect:
 			playAndWait(self.soundMatrix['bleep'])
 		else:
 			playAndWait(self.soundMatrix['buzz'])
 
-
 		# if targetPresent, show 2AFC task here:
+		if curTrial['targetPresent'] == 1:
+			targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
+			foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
+
+			targetLocationName = curTrial['whichTarget']
+			foilLocationName = {'right': 'left', 'left': 'right'}[targetLocationName]
+
+			targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
+			foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
+
+			setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
+
+			correctLocationResp = curTrial['whichTarget']
+			if self.experiment.inputDevice == 'keyboard':
+				(response, rt) = getKeyboardResponse(self.experiment.validResponses.values())
+			elif self.experiment.inputDevice == 'gamepad':
+				(response, rt) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
+
+			print response, rt
+			isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == response)
 
 		self.experiment.win.flip()
 		fieldVars=[]
@@ -198,12 +231,15 @@ class ExpPresentation(trial):
 		for curField in self.fieldNames:
 			fieldVars.append(curTrial[curField])
 		[header, curLine] = createRespNew(self.experiment.optionList,self.experiment.subjVariables,self.fieldNames,fieldVars,
-		a_whichPart = whichPart,
-		b_curTrialIndex = curTrialIndex,
-		c_expTimer = self.expTimer.getTime(),
-		d_response = response,
-		e_isRight = isRight,
-		f_rt = rt*1000)
+			a_whichPart = whichPart,
+			b_curTrialIndex = curTrialIndex,
+			c_expTimer = self.expTimer.getTime(),
+			d_response = response,
+			e_isPresentCorrect = isRight,
+			f_isPresentRT = rt*1000,
+			g_isLocationCorrect = isTargetLocationCorrect,
+			h_isLocationRT = rt*1000,
+		)
 		writeToFile(self.experiment.outputFileTest,curLine)
 		if curTrialIndex==0 and whichPart<>"practice":
 			print 'writing header to file'
