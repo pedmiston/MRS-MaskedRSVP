@@ -125,6 +125,7 @@ class ExpPresentation(trial):
 		targets = loadFiles(Path('stimuli', 'images', 'targets'), 'jpg', 'image', self.experiment.win)
 		distractors = loadFiles(Path('stimuli', 'images', 'distractors'), 'jpg', 'image', self.experiment.win)
 
+		# load targets and distractors in the same matrix
 		self.pictureMatrix = targets
 		self.pictureMatrix.update(distractors)
 
@@ -138,114 +139,160 @@ class ExpPresentation(trial):
 		if event.getKeys()==['equal','equal']:
 			sys.exit("Exiting experiment")
 
-	def presentVisualInterference(self, duration = 0.2):
+	def presentVisualInterference(self, duration):
 		MASK_REFRESH = 0.0083 * 4
 		timer = core.clock()
 		startTime = timer.getTime()
 		while timer.getTime() - startTime < duration:
-			self.dynamic_mask.draw()
+			self.dynamic_mask.draw() # selects a new frame at random
 			self.experiment.win.flip()
 			core.wait(MASK_REFRESH)
 
 	def presentTestTrial(self, whichPart, curTrial, curTrialIndex):
+		"""
+		Trial parts
+		-----------
+		1. Fixation
+		2. Target name or blank
+		3. Mask or blank
+		4. Pre-sequence blank
+		5. Sequence of pictures
+		6. Post-sequence blank
+		7. Target name or blank
+		8. Mask or blank
+		9. Y/N prompt
+		10. 2AFC
+		"""
 		self.checkExit() #check for exit press the equals key twice.
 		self.experiment.win.flip()
 
 		self.namePrompt.setText(curTrial['targetName'])
 
-		setAndPresentStimulus(self.experiment.win,[self.fixSpot]) #show fixation cross
+		# 1. Fixation
+		setAndPresentStimulus(self.experiment.win,[self.fixSpot, ])
 		core.wait(self.experiment.preFixationDelay)
 
-		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.fixSpot]) #show blank frame w/ fixation
-		core.wait(self.experiment.postFixationDelay)
-
-		# if whenTarget == 'before', show the target text here
+		# 2. Target name or blank
 		textTimeWhenTargetBefore = 1.0
-		stimToShow = list()
 		if curTrial['whenTarget'] == 'before':
-			stimToShow += self.namePrompt
-		setAndPresentStimulus(self.experiment.win, stimToShow)
+			setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+		else:
+			self.experiment.win.flip()
 		core.wait(textTimeWhenTargetBefore)
 
-		# if isMask and whenMask == 'before', show the mask here
+		# 3. Mask or blank
+		maskIntervalDuration = 0.200
 		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'before':
-			self.presentVisualInterference()
+			self.presentVisualInterference(maskIntervalDuration)
+		else:
+			self.experiment.win.flip()
+			core.wait(maskIntervalDuration)
 
-		setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner]) #frame only
-		core.wait(1.5)
+		# 4. Pre-sequence blank
+		preImageBuffer = 0.200
+		self.experiment.win.flip()
+		core.wait(preImageBuffer)
 
-		numFrames = 18 #about 8.3 ms / frame
-		for curPic in range(6): #this should not be hardcoded
-			for i in range(numFrames):
-				setAndPresentStimulus(self.experiment.win,[self.rectOuter, self.rectInner, self.pictureMatrix[curTrial['picFile'+str(curPic+1)]][0]]) #show one of RSVP stream images
+		# 5. Sequence of pictures
+		for curPicIndex in range(6):
+			curPicName = curTrial['picFile'+str(curPicIndex+1)]
+			curPic = self.pictureMatrix[curPicName][0]
+			setAndPresentStimulus(self.experiment.win, [self.rectOuter, self.rectInner, curPic])
+			core.wait(curTrial['picDurationSec'])
 
-		# if isMask and whenMask == 'after', show the mask here
-		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'after':
-			self.presentVisualInterference()
+		# 6. Post-sequence blank
+		postImageBuffer = preImageBuffer
+		self.experiment.win.flip()
+		core.wait(postImageBuffer)
 
-		# if whenTarget == 'after', show the target text here
-		stimToShow = [self.testPrompt, ]
+		"""
+		On the "post cue" trials in Potter et al., the target name was
+		presented along with the response prompt. Here we separate the
+		target name from the response prompt so that participants know
+		not to respond until the response prompt. That way, we can present
+		the prompt very, very briefly, and then show the mask.
+		"""
+
+		# 7. Target name or blank
+		textTimeWhenTargetAfter = textTimeWhenTargetBefore
 		if curTrial['whenTarget'] == 'after':
-			stimToShow += self.namePrompt
-		setAndPresentStimulus(self.experiment.win, stimToShow)
+			setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+		else:
+			self.experiment.win.flip()
+		core.wait(textTimeWhenTargetAfter)
+
+		# 8. Mask or blank
+		if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'after':
+			self.presentVisualInterference(maskIntervalDuration)
+		else:
+			self.experiment.win.flip()
+			core.wait(maskIntervalDuration)
+
+		# 9. Y/N prompt
+		setAndPresentStimulus(self.experiment.win, [self.testPrompt, ])
 
 		correctResp = str(curTrial['isTargetPresent'])
 		if self.experiment.inputDevice=='keyboard':
-			(response,rt) = getKeyboardResponse(self.experiment.validResponses.values())
+			(yesNoResponse, yesNoRT) = getKeyboardResponse(self.experiment.validResponses.values())
 		elif self.experiment.inputDevice=='gamepad':
-			(response,rt) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
+			(yesNoResponse, yesNoRT) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
 
-		print response,rt
-		isTargetPresentCorrect = int(self.experiment.validResponses[correctResp]==response)
+		print (yesNoResponse, ynRT)
+		isTargetPresentCorrect = int(self.experiment.validResponses[correctResp]==yesNoResponse)
 
 		if isTargetPresentCorrect:
 			playAndWait(self.soundMatrix['bleep'])
 		else:
 			playAndWait(self.soundMatrix['buzz'])
 
-		# if targetPresent, show 2AFC task here:
-		if curTrial['targetPresent'] == 1:
-			targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
-			foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
 
-			targetLocationName = curTrial['whichTarget']
-			foilLocationName = {'right': 'left', 'left': 'right'}[targetLocationName]
+		# 10. 2AFC
+		targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
+		foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
 
-			targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
-			foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
+		targetLocationName = curTrial['whichTarget']
+		foilLocationName = 'right' if targetLocationName == 'left' else 'left'
 
-			setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
+		targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
+		foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
 
-			correctLocationResp = curTrial['whichTarget']
-			if self.experiment.inputDevice == 'keyboard':
-				(response, rt) = getKeyboardResponse(self.experiment.validResponses.values())
-			elif self.experiment.inputDevice == 'gamepad':
-				(response, rt) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
+		setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
 
-			print response, rt
-			isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == response)
+		correctLocationResp = curTrial['whichTarget']
+		if self.experiment.inputDevice == 'keyboard':
+			(locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
+		elif self.experiment.inputDevice == 'gamepad':
+			(locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
 
+		print (locResponse, locRT)
+		isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
+
+		# ----------------------------------
+		# Trial complete, write data to file
 		self.experiment.win.flip()
 		fieldVars=[]
 
 		for curField in self.fieldNames:
 			fieldVars.append(curTrial[curField])
+
 		[header, curLine] = createRespNew(self.experiment.optionList,self.experiment.subjVariables,self.fieldNames,fieldVars,
 			a_whichPart = whichPart,
 			b_curTrialIndex = curTrialIndex,
 			c_expTimer = self.expTimer.getTime(),
-			d_response = response,
-			e_isPresentCorrect = isRight,
-			f_isPresentRT = rt*1000,
+			d_yesNoResponse = yesNoResponse,
+			e_isPresentCorrect = isTargetPresentCorrect,
+			f_isPresentRT = yesNoRT*1000,
+			g_locResponse = locResponse,
 			g_isLocationCorrect = isTargetLocationCorrect,
-			h_isLocationRT = rt*1000,
+			h_isLocationRT = locRT*1000,
 		)
+
 		writeToFile(self.experiment.outputFileTest,curLine)
-		if curTrialIndex==0 and whichPart<>"practice":
+		if curTrialIndex == 0 and whichPart != "practice":
 			print 'writing header to file'
 			dirtyHack = {}
 			dirtyHack['trialNum']=1
-			writeHeader(dirtyHack,header,'header_side_short') #fix the dirty hack later
+			writeHeader(dirtyHack, header, 'header_side_short') #fix the dirty hack later
 
 	def cycleThroughExperimentTrials(self,whichPart):
 		if whichPart == "practice":
