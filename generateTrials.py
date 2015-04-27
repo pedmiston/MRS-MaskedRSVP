@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import numpy as np
 import pandas as pd
 import random
 
@@ -39,13 +38,17 @@ def main(trialsFileName, seed):
     for field in orderedFields:
         curTrial[field] = ''
 
-    whenTargetNameOpts = ['before', 'after']
     picDurationTypeOpts = ['long', 'short']
     picDurationMap = {'long': 0.083, 'short': 0.025}
+    whenTargetNameOpts = ['before', 'after']
+
+    # randomly decide whether participants get the target name before
+    # blocks first or the target name after blocks first
+    random.shuffle(whenTargetNameOpts)
 
     blockOpts = {}
-    blockOpts['whenTargetName'] = whenTargetNameOpts
     blockOpts['picDurationType'] = picDurationTypeOpts
+    blockOpts['whenTargetName'] = whenTargetNameOpts
     blockItems = list(product(*blockOpts.values()))
     blocks = pd.DataFrame(blockItems, columns = blockOpts.keys())
 
