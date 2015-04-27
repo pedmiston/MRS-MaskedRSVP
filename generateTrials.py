@@ -1,9 +1,11 @@
 #!/usr/bin/env python
+import numpy as np
+import pandas as pd
+import random
+
 from collections import OrderedDict
 from itertools import product
-import random
-import pandas as pd
-import numpy as np
+from unipath import Path
 
 def chooseTargetAndFoil(name, opts):
     """
@@ -74,11 +76,12 @@ def main(trialsFileName, seed):
 
     withinBlockTrials = pd.DataFrame(withinBlockOpts)
 
-    targets = pd.read_csv('stimuli/targets.csv')
+    targets = pd.read_csv(Path('stimuli', 'images', 'targets.csv'))
     targetNameList = targets.picName.unique().tolist()
     random.shuffle(targetNameList)
 
-    distractors = pd.read_csv('stimuli/distractors.csv', names = ['picFile', ])
+    distractors = pd.read_csv(Path('stimuli', 'images', 'distractors.csv'),
+            names = ['picFile', ])
     distractorList = distractors.picFile.tolist()
     random.shuffle(distractorList)
 
@@ -162,4 +165,4 @@ def main(trialsFileName, seed):
             trialList.write(trial)
 
 if __name__ == "__main__":
-    main('test-trials', 13)
+    main('test', 13)
