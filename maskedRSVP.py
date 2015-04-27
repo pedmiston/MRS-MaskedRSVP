@@ -237,7 +237,8 @@ class ExpPresentation(trial):
 		elif self.experiment.inputDevice=='gamepad':
 			(yesNoResponse, yesNoRT) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
 
-		print (yesNoResponse, ynRT)
+		yesNoRT *= 1000.0
+		print (yesNoResponse, yesNoRT)
 		isTargetPresentCorrect = int(self.experiment.validResponses[correctResp]==yesNoResponse)
 
 		if isTargetPresentCorrect:
@@ -245,27 +246,36 @@ class ExpPresentation(trial):
 		else:
 			playAndWait(self.soundMatrix['buzz'])
 
-
 		# 10. 2AFC
-		targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
-		foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
+		# Only show the 2AFC if the participant responded "yes"
+		if yesNoResponse == 'yes':
+			targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
+			foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
 
-		targetLocationName = curTrial['whichTarget']
-		foilLocationName = 'right' if targetLocationName == 'left' else 'left'
+			targetLocationName = curTrial['whichTarget']
+			foilLocationName = 'right' if targetLocationName == 'left' else 'left'
 
-		targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
-		foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
+			targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
+			foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
 
-		setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
+			setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
 
-		correctLocationResp = curTrial['whichTarget']
-		if self.experiment.inputDevice == 'keyboard':
-			(locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
-		elif self.experiment.inputDevice == 'gamepad':
-			(locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
+			correctLocationResp = curTrial['whichTarget']
+			if self.experiment.inputDevice == 'keyboard':
+				(locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
+			elif self.experiment.inputDevice == 'gamepad':
+				(locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
 
-		print (locResponse, locRT)
-		isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
+			locRT *= 1000.0
+			print (locResponse, locRT)
+			isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
+		else:
+			locResponse = 'NA'
+			locRT = 'NA'
+			isTargetLocationCorrect = 'NA'
+
+		# 11. Remember target name
+
 
 		# ----------------------------------
 		# Trial complete, write data to file
@@ -281,10 +291,10 @@ class ExpPresentation(trial):
 			c_expTimer = self.expTimer.getTime(),
 			d_yesNoResponse = yesNoResponse,
 			e_isPresentCorrect = isTargetPresentCorrect,
-			f_isPresentRT = yesNoRT*1000,
+			f_isPresentRT = yesNoRT,
 			g_locResponse = locResponse,
 			g_isLocationCorrect = isTargetLocationCorrect,
-			h_isLocationRT = locRT*1000,
+			h_isLocationRT = locRT,
 		)
 
 		writeToFile(self.experiment.outputFileTest,curLine)
