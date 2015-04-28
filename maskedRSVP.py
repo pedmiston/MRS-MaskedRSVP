@@ -16,7 +16,7 @@ class Exp:
         self.optionList = {    '1':  {    'name' : 'subjCode',
                                     'prompt' : 'Subject Code: ',
                                     'options': 'any',
-                                    'default':'rsvpTDCS_101',
+                                    'default':'MRS101',
                                     'type' : str},
                             '2' : {    'name' : 'gender',
                                     'prompt' : 'Subject Gender m/f: ',
@@ -79,16 +79,26 @@ class Exp:
         self.postFixationDelay  =     0.500
         self.numPracticeTrials = 3
         self.takeBreakEveryXTrials = 100;
-        self.finalText              = "You've come to the end of the experiment.  Thank you for participating."
-        self.instructions        = \
-        """Thank you for participating \nIn this experiment you will see a series of pictures. The first picture you will see (in a green frame) is the target you will be searching for. \n\n You will then see a stream of new images. Sometimes, in this stream, there will be a picture that *exactly* matches the target you saw in the green frame.
-        Other times, none of the pictures will match the target exactly. After you see each series of pictures, your task is to decide if you saw the picture in the green frame or not. If you saw the picture you should press the button for "yes". \n The first few will be practice. On these, if you make a mistake, you will hear a buzzing sound.
-        \n\nPlease let the experimenter know if you have any questions.
-        """
+        self.finalText = "You've come to the end of the experiment. Thank you for participating."
+        self.instructions = \
+            ("Welcome to the MRS study!\n"
+             "In this experiment you will see a sequence of pictures."
+             "Your goal is to remember as many of the pictures as you can"
+             "because we will ask you questions about what you saw.\n"
+             "For example, we might ask you if you saw a picture of a dog."
+             "Sometimes you will know what to look for before you see the"
+             "pictures, but other times we won't ask you about what you saw"
+             "until after the images are gone.\n"
+             "After you answer if you saw the target image or not, some of"
+             "the time we will ask you to pick which image you saw, and"
+             "other times we will ask you to type in the name of the picture"
+             "you were looking for even if you didn't see it.\n"
+             "Please let the experimenter know when you have completed"
+             "reading these instructions")
 
         self.instructions+=responseInfo
 
-        self.takeBreak = "Please take a short break.  Press 'Enter' when you are ready to continue"
+        self.takeBreak = "Please take a short break. Press 'Enter' when you are ready to continue"
         self.practiceTrials = "The next part is practice"
         self.realTrials = "Now for the real trials"
 
