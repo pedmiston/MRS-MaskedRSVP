@@ -62,7 +62,7 @@ class Exp:
                 self.stick=initGamepad()
                 pygame.init()
                 self.inputDevice = "gamepad"
-                responseInfo = " Press the GREEN key for 'Yes' and the RED' button for 'No'."
+                self.responseInfo = " Press the GREEN key for 'Yes' and the RED' button for 'No'."
                 self.validResponses = {'1':0,'0':3}
                 assert False, 'Left right responses not implemented for gamepad. Try keyboard'
                 self.leftRightResponses = dict()
@@ -75,13 +75,11 @@ class Exp:
             self.inputDevice = "keyboard"
             self.validResponses = {'1':'up','0':'down'} #change n/o to whatever keys you want to use
             self.leftRightResponses = {'left': 'left', 'right': 'right'}
-            responseInfo = "Press the 'up arrow' for 'Yes' and the down arrow' for 'No'."
-            self.leftRightResponseInfo = "Press the 'left arrow' or the 'right arrow'"
+            self.responseInfo = "Press the up arrow for 'Yes' and the down arrow for 'No'."
+            self.leftRightResponseInfo = "Press the left arrow for the left image and the right arrow for the right image."
 
         self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
 
-        self.preFixationDelay  =     0.500
-        self.postFixationDelay  =     0.500
         self.takeBreakEveryXTrials = 32  # number of trials in a block
         self.finalText = "You've come to the end of the experiment. Thank you for participating."
         self.instructions = \
@@ -100,7 +98,7 @@ class Exp:
              "Please let the experimenter know when you have completed "
              "reading these instructions\n\n")
 
-        self.instructions+=responseInfo
+        self.instructions += self.responseInfo
 
         self.takeBreak = "Please take a short break. Press 'Enter' when you are ready to continue"
         self.practiceTrials = "The next part is practice"
@@ -126,11 +124,11 @@ class ExpPresentation(trial):
 
         self.namePrompt = newText(self.experiment.win, "", pos=[0,0],
                 color = "black", scale = 1.6)
-        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
+        self.testPrompt = newText(self.experiment.win, "Yes or No?\n"+self.experiment.responseInfo, pos=[0,200],
                 color = "black", scale = 1.6)
-        self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [0,200],
+        self.promptTextResponse = newText(self.experiment.win, "What was the object you were looking for?", pos = [0,200],
                 color = "black", scale = 1.0)
-        self.promptLeftRightResponse = newText(self.experiment.win, "Which of the two images below did you see?\n"+self.experiment.leftRightResponseInfo, color = 'black', scale = 1.0, pos = [0, 200])
+        self.promptLeftRightResponse = newText(self.experiment.win, "Left or Right?\n"+self.experiment.leftRightResponseInfo, color = 'black', scale = 1.0, pos = [0, 200])
 
         showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
 
@@ -231,24 +229,24 @@ class ExpPresentation(trial):
         self.namePrompt.setText(curTrial['targetName'])
 
         # 1. Fixation
+        timeForFixation = 0.500
         setAndPresentStimulus(self.experiment.win,[self.fixSpot, ])
-        core.wait(self.experiment.preFixationDelay)
+        core.wait(timeForFixation)
 
         # 2. Target name or blank
-        textTimeWhenTargetBefore = 1.0
+        textTimeWhenTargetBefore = 0.700
         if curTrial['whenTargetName'] == 'before':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+            core.wait(textTimeWhenTargetBefore)
         else:
             self.experiment.win.flip()
-        core.wait(textTimeWhenTargetBefore)
 
         # 3. Mask or blank
-        maskIntervalDuration = 0.200
+        maskIntervalDuration = 0.500
         if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'before':
             self.presentVisualInterference(maskIntervalDuration)
         else:
             self.experiment.win.flip()
-            core.wait(maskIntervalDuration)
 
         # 4. Pre-sequence blank
         preImageBuffer = 0.200
@@ -271,16 +269,15 @@ class ExpPresentation(trial):
         textTimeWhenTargetAfter = textTimeWhenTargetBefore
         if curTrial['whenTargetName'] == 'after':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+            core.wait(textTimeWhenTargetAfter)
         else:
             self.experiment.win.flip()
-        core.wait(textTimeWhenTargetAfter)
 
         # 8. Mask or blank
         if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'after':
             self.presentVisualInterference(maskIntervalDuration)
         else:
             self.experiment.win.flip()
-            core.wait(maskIntervalDuration)
 
         # 9. Y/N prompt
         setAndPresentStimulus(self.experiment.win, [self.testPrompt, ])
@@ -304,7 +301,7 @@ class ExpPresentation(trial):
         # Only show the 2AFC if the participant responded "yes"
         locResponse = None
 
-        participantRespondedYes = yesNoResponse == self.experiment.validResponses['1']
+        participantRespondedYes = (yesNoResponse == self.experiment.validResponses['1'])
         if participantRespondedYes:
             showPictures = random.choice([True, False])
             if showPictures:
@@ -374,14 +371,14 @@ class ExpPresentation(trial):
         if whichPart == "practice":
             curTrialIndex = 0
             for curTrial in self.trialListMatrix:
-                if curTrial['blockNum'] > -1:
+                if curTrial['blockNum'] > -1:  # stop when you reach the real trials
                     break
                 self.presentTestTrial(whichPart, curTrial, curTrialIndex)
                 curTrialIndex += 1
         else:
             curTrialIndex=0
             for curTrial in self.trialListMatrix:
-                if curTrial['blockNum'] > -1:
+                if curTrial['blockNum'] > -1:  # should just jump over practice trials
                     self.checkExit()
                     if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
                         showText(self.experiment.win,self.experiment.takeBreak,color=(0,0,0),inputDevice=self.experiment.inputDevice) #take a break

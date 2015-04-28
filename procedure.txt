@@ -1,0 +1,26 @@
+Procedure
+====
+
+Picture Name Before
+-------------------
+500 ms fixation
+700 ms picture name
+500 ms mask or blank screen
+200 ms blank screen
+[sequence of 6 pictures at 83 ms/picture or 25 ms/picture]
+200 ms blank screen
+prompt until response (Yes or No)
+If "No", prompt to type in target name
+If "Yes", 50% 2AFC / 50% prompt to type in target name
+
+Picture Name After
+------------------
+500 ms fixation
+200 ms blank
+[sequence of 6 pictures at 83 ms/picture or 25 ms/picture]
+200 ms blank
+700 ms picture name
+500 ms mask or blank screen
+prompt until response (Yes or No)
+If "No", prompt to type in target name
+If "Yes", 50% 2AFC / 50% prompt to type in target name
