@@ -64,6 +64,9 @@ class Exp:
                 self.inputDevice = "gamepad"
                 responseInfo = " Press the GREEN key for 'Yes' and the RED' button for 'No'."
                 self.validResponses = {'1':0,'0':3}
+                assert False, 'Left right responses not implemented for gamepad. Try keyboard'
+                self.leftRightResponses = dict()
+                self.leftRightResponseInfo = ""
             except SystemExit:
                 self.subjVariables['responseDevice']='keyboard'
 
@@ -71,7 +74,9 @@ class Exp:
             print "Using keyboard"
             self.inputDevice = "keyboard"
             self.validResponses = {'1':'up','0':'down'} #change n/o to whatever keys you want to use
-            responseInfo = " Press the 'up arrow' for 'Yes' and the down arrow' for 'No'."
+            self.leftRightResponses = {'left': 'left', 'right': 'right'}
+            responseInfo = "Press the 'up arrow' for 'Yes' and the down arrow' for 'No'."
+            self.leftRightResponseInfo = "Press the 'left arrow' or the 'right arrow'"
 
         self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
 
@@ -119,12 +124,13 @@ class ExpPresentation(trial):
         #self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
         #self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
 
-        self.namePrompt = newText(self.experiment.win, "", pos=[0,200],
+        self.namePrompt = newText(self.experiment.win, "", pos=[0,0],
                 color = "black", scale = 1.6)
-        self.testPrompt = newText(self.experiment.win, "?", pos=[0,200],
+        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
                 color = "black", scale = 1.6)
-        self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [0,350],
-                color = "black", scale = 1.6)
+        self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [0,200],
+                color = "black", scale = 1.0)
+        self.promptLeftRightResponse = newText(self.experiment.win, "Which of the two images below did you see?\n"+self.experiment.leftRightResponseInfo, color = 'black', scale = 1.0, pos = [0, 200])
 
         showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
 
@@ -150,6 +156,10 @@ class ExpPresentation(trial):
         mask_size = (320, 320)
         self.dynamic_mask = DynamicMask(win = self.experiment.win, size = mask_size)
 
+        # locations for 2AFC images
+        gutter = 200
+        self.forcedChoiceLocations = {'left': [-gutter, 0], 'right': [gutter, 0]}
+
     def checkExit(self): #I don't think this works if gamepad is in use
         if event.getKeys()==['equal','equal']:
             sys.exit("Exiting experiment")
@@ -168,9 +178,9 @@ class ExpPresentation(trial):
         response=''
         respStr=''
         similarity='*'
-        respText = newText(self.experiment.win," ",pos=[0,200],color="black",scale=1)
+        respText = newText(self.experiment.win," ",pos=[0,0],color="black",scale=1)
         stimToDraw.draw()
-        responseReminder = newText(self.experiment.win,"Please type your answer to the question above. Don't worry about upper/lowercase",pos=[0,275],color="gray",scale=.7)
+        responseReminder = newText(self.experiment.win,"Please type your answer to the question above. Don't worry about upper/lowercase",pos=[0,100],color="gray",scale=.7)
 
         #newText is a function in stimPresPsychopy.. just creates a psychopy text obj
         responseReminder.setAutoDraw(True)
@@ -293,11 +303,13 @@ class ExpPresentation(trial):
         # 10. 2AFC
         # Only show the 2AFC if the participant responded "yes"
         locResponse = None
-        if yesNoResponse == 1:
+
+        participantRespondedYes = yesNoResponse == self.experiment.validResponses['1']
+        if participantRespondedYes:
             showPictures = random.choice([True, False])
             if showPictures:
-                targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
-                foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
+                targetPic = self.pictureMatrix[curTrial['targetFile']][0]
+                foilPic = self.pictureMatrix[curTrial['foilFile']][0]
 
                 targetLocationName = curTrial['whichTarget']
                 foilLocationName = 'right' if targetLocationName == 'left' else 'left'
@@ -305,17 +317,17 @@ class ExpPresentation(trial):
                 targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
                 foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
 
-                setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
+                setAndPresentStimulus(self.experiment.win, [self.promptLeftRightResponse, targetPic, foilPic])
 
                 correctLocationResp = curTrial['whichTarget']
                 if self.experiment.inputDevice == 'keyboard':
-                    (locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
+                    (locResponse, locRT) = getKeyboardResponse(self.experiment.leftRightResponses.values())
                 elif self.experiment.inputDevice == 'gamepad':
-                    (locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
+                    (locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.leftRightResponses.values())
 
                 locRT *= 1000.0
                 print (locResponse, locRT)
-                isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
+                isTargetLocationCorrect = int(self.experiment.leftRightResponses[correctLocationResp] == locResponse)
 
         if not locResponse:
             locResponse = 'NA'
