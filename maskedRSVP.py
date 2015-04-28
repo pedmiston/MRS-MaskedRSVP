@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+from difflib import SequenceMatcher
+
 from baseDefsPsychoPy import *
 from stimPresPsychoPy import *
 import generateTrials
@@ -110,6 +112,8 @@ class ExpPresentation(trial):
 				color = "black", scale = 1.6)
 		self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
 				color = "black", scale = 1.6)
+		self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [-300, 0],
+				color = "black", scale = 1.6)
 
 		showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
 
@@ -148,6 +152,41 @@ class ExpPresentation(trial):
 			self.experiment.win.flip()
 			core.wait(MASK_REFRESH)
 
+	def collectWordResponse(self,stimToDraw,correctString):
+		responded=False
+		response=''
+		respStr=''
+		similarity='*'
+		respText = newText(self.experiment.win," ",pos=[0,-270],color="black",scale=1)
+		stimToDraw.draw()
+		responseReminder = newText(self.experiment.win,"Please type the words/letters above. Don't worry about upper/lowercase",pos=[0,-150],color="gray",scale=.7)
+		#newText is a function in stimPresPsychopy.. just creates a psychopy text obj
+		responseReminder.setAutoDraw(True)
+		self.experiment.win.flip()
+		while not responded: #collect one letter response
+			stimToDraw.draw()
+			for key in event.getKeys():
+				if key in ['enter','return']:
+					responded = True
+				if key in ['backspace']:
+					if len(response) >0:
+						response = response[0:-1]
+				elif key in 'abcdefghijklmnopqrstuvwxyz' or key == 'space':
+					responded = False
+					if key=='space':
+						response +=' '
+					else:
+						response += key
+				else:
+					print key
+				respText.setText(response)
+				stimToDraw.draw()
+				respText.draw()
+				self.experiment.win.flip()
+		print 'given:', correctString, ' responded: ',response, SequenceMatcher(None,correctString.lower(),response.lower()).ratio()
+		responseReminder.setAutoDraw(False)
+		return [response, SequenceMatcher(None,correctString.lower(),response.lower()).ratio()]
+
 	def presentTestTrial(self, whichPart, curTrial, curTrialIndex):
 		"""
 		Trial parts
@@ -162,6 +201,7 @@ class ExpPresentation(trial):
 		8. Mask or blank
 		9. Y/N prompt
 		10. 2AFC
+		11. Remember target name
 		"""
 		self.checkExit() #check for exit press the equals key twice.
 		self.experiment.win.flip()
@@ -275,7 +315,8 @@ class ExpPresentation(trial):
 			isTargetLocationCorrect = 'NA'
 
 		# 11. Remember target name
-
+		stimToDraw = [self.promptTextResponse, ]
+		[textEntry, similarity] = self.collectWordResponse(stimToDraw, curTrial['targetName'])
 
 		# ----------------------------------
 		# Trial complete, write data to file
@@ -293,8 +334,10 @@ class ExpPresentation(trial):
 			e_isPresentCorrect = isTargetPresentCorrect,
 			f_isPresentRT = yesNoRT,
 			g_locResponse = locResponse,
-			g_isLocationCorrect = isTargetLocationCorrect,
-			h_isLocationRT = locRT,
+			h_isLocationCorrect = isTargetLocationCorrect,
+			i_isLocationRT = locRT,
+			j_rememberedTarget = textEntry,
+			k_rememberedTargetSimilarity = similarity,
 		)
 
 		writeToFile(self.experiment.outputFileTest,curLine)
