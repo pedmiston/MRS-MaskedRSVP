@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from difflib import SequenceMatcher
+from unipath import Path
 
 from baseDefsPsychoPy import *
 from stimPresPsychoPy import *
@@ -49,7 +50,7 @@ class Exp:
                     fileOpened=False
                     popupError('Error: That subject code already exists')
                 else:
-                    self.outputFileTest = file(self.subjVariables['subjCode']+'_test.txt','w')
+                    self.outputFileTest = file('test_'+self.subjVariables['subjCode']+'.txt','w')
                     fileOpened=True
             except:
                 pass
@@ -127,7 +128,8 @@ class ExpPresentation(trial):
         (self.trialListMatrix,self.fieldNames) = importTrials(subjTrialsFile, method="sequential")
 
         targets = loadFiles(Path('stimuli', 'images', 'targets'), 'jpg', 'image', self.experiment.win)
-        distractors = loadFiles(Path('stimuli', 'images', 'distractors'), 'jpg', 'image', self.experiment.win)
+        distractors = loadFiles(Path('stimuli', 'images', 'distractors-1000'), 'jpg', 'image', self.experiment.win)
+        print distractors.keys()
 
         # load targets and distractors in the same matrix
         self.pictureMatrix = targets
@@ -145,7 +147,7 @@ class ExpPresentation(trial):
 
     def presentVisualInterference(self, duration):
         MASK_REFRESH = 0.0083 * 4
-        timer = core.clock()
+        timer = core.Clock()
         startTime = timer.getTime()
         while timer.getTime() - startTime < duration:
             self.dynamic_mask.draw() # selects a new frame at random
@@ -214,7 +216,7 @@ class ExpPresentation(trial):
 
         # 2. Target name or blank
         textTimeWhenTargetBefore = 1.0
-        if curTrial['whenTarget'] == 'before':
+        if curTrial['whenTargetName'] == 'before':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
         else:
             self.experiment.win.flip()
@@ -255,7 +257,7 @@ class ExpPresentation(trial):
 
         # 7. Target name or blank
         textTimeWhenTargetAfter = textTimeWhenTargetBefore
-        if curTrial['whenTarget'] == 'after':
+        if curTrial['whenTargetName'] == 'after':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
         else:
             self.experiment.win.flip()
@@ -315,7 +317,7 @@ class ExpPresentation(trial):
             isTargetLocationCorrect = 'NA'
 
         # 11. Remember target name
-        stimToDraw = [self.promptTextResponse, ]
+        stimToDraw = self.promptTextResponse
         [textEntry, similarity] = self.collectWordResponse(stimToDraw, curTrial['targetName'])
 
         # ----------------------------------

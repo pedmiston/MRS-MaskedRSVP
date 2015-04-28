@@ -80,11 +80,16 @@ def main(trialsFileName, seed):
     withinBlockTrials = pd.DataFrame(withinBlockOpts)
 
     targets = pd.read_csv(Path('stimuli', 'images', 'targets.csv'))
+
+    remove_file_extension = lambda x: Path(x).stem
+
+    targets['picFile'] = targets.picFile.apply(remove_file_extension)
     targetNameList = targets.picName.unique().tolist()
     random.shuffle(targetNameList)
 
     distractors = pd.read_csv(Path('stimuli', 'images', 'distractors-1000.csv'),
             names = ['picFile', ])
+    distractors['picFile'] = distractors.picFile.apply(remove_file_extension)
     distractorList = distractors.picFile.tolist()
     random.shuffle(distractorList)
 
