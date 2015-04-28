@@ -331,13 +331,13 @@ class ExpPresentation(trial):
 			b_curTrialIndex = curTrialIndex,
 			c_expTimer = self.expTimer.getTime(),
 			d_yesNoResponse = yesNoResponse,
-			e_isPresentCorrect = isTargetPresentCorrect,
-			f_isPresentRT = yesNoRT,
-			g_locResponse = locResponse,
-			h_isLocationCorrect = isTargetLocationCorrect,
-			i_isLocationRT = locRT,
-			j_rememberedTarget = textEntry,
-			k_rememberedTargetSimilarity = similarity,
+			e_isYesNoCorrect = isTargetPresentCorrect,
+			f_yesNoRT = yesNoRT,
+			g_targetFoilResponse = locResponse,
+			h_targetFoilCorrect = isTargetLocationCorrect,
+			i_targetFoilRT = locRT,
+			j_rememberTarget = textEntry,
+			k_rememberTargetSimilarity = similarity,
 		)
 
 		writeToFile(self.experiment.outputFileTest,curLine)
