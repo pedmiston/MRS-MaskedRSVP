@@ -77,8 +77,7 @@ class Exp:
 
         self.preFixationDelay  =     0.500
         self.postFixationDelay  =     0.500
-        self.numPracticeTrials = 3
-        self.takeBreakEveryXTrials = 100;
+        self.takeBreakEveryXTrials = 32  # number of trials in a block
         self.finalText = "You've come to the end of the experiment. Thank you for participating."
         self.instructions = \
             ("Welcome to the MRS study!\n"
@@ -124,7 +123,7 @@ class ExpPresentation(trial):
                 color = "black", scale = 1.6)
         self.testPrompt = newText(self.experiment.win, "?", pos=[0,200],
                 color = "black", scale = 1.6)
-        self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [-300, 0],
+        self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [0,350],
                 color = "black", scale = 1.6)
 
         showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
@@ -169,9 +168,9 @@ class ExpPresentation(trial):
         response=''
         respStr=''
         similarity='*'
-        respText = newText(self.experiment.win," ",pos=[0,-270],color="black",scale=1)
+        respText = newText(self.experiment.win," ",pos=[0,200],color="black",scale=1)
         stimToDraw.draw()
-        responseReminder = newText(self.experiment.win,"Please type the words/letters above. Don't worry about upper/lowercase",pos=[0,0],color="gray",scale=.7)
+        responseReminder = newText(self.experiment.win,"Please type your answer to the question above. Don't worry about upper/lowercase",pos=[0,275],color="gray",scale=.7)
 
         #newText is a function in stimPresPsychopy.. just creates a psychopy text obj
         responseReminder.setAutoDraw(True)
