@@ -120,7 +120,10 @@ class ExpPresentation(trial):
         """This loads all the stimili and initializes the trial sequence"""
         self.fixSpot = visual.TextStim(self.experiment.win,text="+",height = 30,color="black")
 
-        #self.rectOuter = newRect(self.experiment.win,size=(310,310),pos=(0,0),color='gray')
+        #self.frame = newRect(self.experiment.win,size=(310,310),pos=(0,0),color='gray')
+        frame_size = 620
+        self.frame = visual.Rect(self.experiment.win, size = (frame_size, frame_size),
+                pos = (0, 0), lineColor = 'black')
         #self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
         #self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
 
@@ -170,6 +173,7 @@ class ExpPresentation(trial):
         startTime = timer.getTime()
         while timer.getTime() - startTime < duration:
             self.dynamic_mask.draw() # selects a new frame at random
+            self.frame.draw()
             self.experiment.win.flip()
             core.wait(MASK_REFRESH)
 
@@ -232,19 +236,20 @@ class ExpPresentation(trial):
 
         # 1. Fixation
         timeForFixation = 0.500
-        setAndPresentStimulus(self.experiment.win,[self.fixSpot, ])
+        setAndPresentStimulus(self.experiment.win,[self.fixSpot, self.frame])
         core.wait(timeForFixation)
 
         # 2. Target name or blank
         textTimeWhenTargetBefore = 0.700
         maskIntervalDuration = 0.500
         if curTrial['whenTargetName'] == 'before':
-            setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+            setAndPresentStimulus(self.experiment.win, [self.namePrompt, self.frame])
             core.wait(textTimeWhenTargetBefore)
 
             if curTrial['isMask'] == 1:
                 self.presentVisualInterference(maskIntervalDuration)
             else:
+                self.frame.draw()
                 self.experiment.win.flip()
                 core.wait(maskIntervalDuration)
         else:
@@ -252,6 +257,7 @@ class ExpPresentation(trial):
 
         # 4. Pre-sequence blank
         preImageBuffer = 0.200
+        self.frame.draw()
         self.experiment.win.flip()
         core.wait(preImageBuffer)
 
@@ -259,30 +265,32 @@ class ExpPresentation(trial):
         for curPicIndex in range(6):
             curPicName = curTrial['picFile'+str(curPicIndex+1)]
             curPic = self.pictureMatrix[curPicName][0]
-            setAndPresentStimulus(self.experiment.win, [curPic, ])
+            setAndPresentStimulus(self.experiment.win, [curPic, self.frame])
             core.wait(curTrial['picDurationSec'])
 
         # 6. Post-sequence blank
         postImageBuffer = preImageBuffer
+        self.frame.draw()
         self.experiment.win.flip()
         core.wait(postImageBuffer)
 
         # 7. Target name or blank
         textTimeWhenTargetAfter = textTimeWhenTargetBefore
         if curTrial['whenTargetName'] == 'after':
-            setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
+            setAndPresentStimulus(self.experiment.win, [self.namePrompt, self.frame])
             core.wait(textTimeWhenTargetAfter)
 
             if curTrial['isMask'] == 1:
                 self.presentVisualInterference(maskIntervalDuration)
             else:
+                self.frame.draw()
                 self.experiment.win.flip()
                 core.wait(maskIntervalDuration)
         else:
             self.experiment.win.flip()
 
         # 9. Y/N prompt
-        setAndPresentStimulus(self.experiment.win, [self.testPrompt, ])
+        setAndPresentStimulus(self.experiment.win, [self.testPrompt, self.frame])
 
         correctResp = str(curTrial['isTargetPresent'])
         if self.experiment.inputDevice=='keyboard':
