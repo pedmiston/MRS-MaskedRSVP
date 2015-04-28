@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from difflib import SequenceMatcher
 from unipath import Path
+import random
 
 from baseDefsPsychoPy import *
 from stimPresPsychoPy import *
@@ -202,8 +203,8 @@ class ExpPresentation(trial):
         7. Target name or blank
         8. Mask or blank
         9. Y/N prompt
-        10. 2AFC
-        11. Remember target name
+        10A. 2AFC
+        10B. Remember target name
         """
         self.checkExit() #check for exit press the equals key twice.
         self.experiment.win.flip()
@@ -247,14 +248,6 @@ class ExpPresentation(trial):
         self.experiment.win.flip()
         core.wait(postImageBuffer)
 
-        """
-        On the "post cue" trials in Potter et al., the target name was
-        presented along with the response prompt. Here we separate the
-        target name from the response prompt so that participants know
-        not to respond until the response prompt. That way, we can present
-        the prompt very, very briefly, and then show the mask.
-        """
-
         # 7. Target name or blank
         textTimeWhenTargetAfter = textTimeWhenTargetBefore
         if curTrial['whenTargetName'] == 'after':
@@ -277,7 +270,7 @@ class ExpPresentation(trial):
         if self.experiment.inputDevice=='keyboard':
             (yesNoResponse, yesNoRT) = getKeyboardResponse(self.experiment.validResponses.values())
         elif self.experiment.inputDevice=='gamepad':
-            (yesNoResponse, yesNoRT) = getGamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
+            (yesNoResponse, yesNoRT) = getgamepadResponse(self.experiment.stick,self.experiment.validResponses.values())
 
         yesNoRT *= 1000.0
         print (yesNoResponse, yesNoRT)
@@ -290,35 +283,42 @@ class ExpPresentation(trial):
 
         # 10. 2AFC
         # Only show the 2AFC if the participant responded "yes"
-        if yesNoResponse == 'yes':
-            targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
-            foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
+        locResponse = None
+        if yesNoResponse == 1:
+            showPictures = random.choice([True, False])
+            if showPictures:
+                targetPic = self.pictureMatrix[curTrial['targetFile'][0]]
+                foilPic = self.pictureMatrix[curTrial['foilFile'][0]]
 
-            targetLocationName = curTrial['whichTarget']
-            foilLocationName = 'right' if targetLocationName == 'left' else 'left'
+                targetLocationName = curTrial['whichTarget']
+                foilLocationName = 'right' if targetLocationName == 'left' else 'left'
 
-            targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
-            foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
+                targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
+                foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
 
-            setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
+                setAndPresentStimulus(self.experiment.win, [targetPic, foilPic])
 
-            correctLocationResp = curTrial['whichTarget']
-            if self.experiment.inputDevice == 'keyboard':
-                (locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
-            elif self.experiment.inputDevice == 'gamepad':
-                (locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
+                correctLocationResp = curTrial['whichTarget']
+                if self.experiment.inputDevice == 'keyboard':
+                    (locResponse, locRT) = getKeyboardResponse(self.experiment.validResponses.values())
+                elif self.experiment.inputDevice == 'gamepad':
+                    (locResponse, locRT) = getGamepadResponse(self.experiment.stick, self.experiment.validResponses.values())
 
-            locRT *= 1000.0
-            print (locResponse, locRT)
-            isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
-        else:
+                locRT *= 1000.0
+                print (locResponse, locRT)
+                isTargetLocationCorrect = int(self.experiment.validResponses[correctLocationResp] == locResponse)
+
+        if not locResponse:
             locResponse = 'NA'
             locRT = 'NA'
             isTargetLocationCorrect = 'NA'
 
-        # 11. Remember target name
-        stimToDraw = self.promptTextResponse
-        [textEntry, similarity] = self.collectWordResponse(stimToDraw, curTrial['targetName'])
+            # 11. Remember target name
+            stimToDraw = self.promptTextResponse
+            [textEntry, similarity] = self.collectWordResponse(stimToDraw, curTrial['targetName'])
+        else:
+            textEntry = 'NA'
+            similarity = 'NA'
 
         # ----------------------------------
         # Trial complete, write data to file
@@ -333,8 +333,8 @@ class ExpPresentation(trial):
             b_curTrialIndex = curTrialIndex,
             c_expTimer = self.expTimer.getTime(),
             d_yesNoResponse = yesNoResponse,
-            e_isYesNoCorrect = isTargetPresentCorrect,
-            f_yesNoRT = yesNoRT,
+            e_yesNoRT = yesNoRT,
+            f_yesNoCorrect = isTargetPresentCorrect,
             g_targetFoilResponse = locResponse,
             h_targetFoilCorrect = isTargetLocationCorrect,
             i_targetFoilRT = locRT,
