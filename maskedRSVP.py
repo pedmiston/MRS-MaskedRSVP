@@ -83,20 +83,22 @@ class Exp:
         self.takeBreakEveryXTrials = 32  # number of trials in a block
         self.finalText = "You've come to the end of the experiment. Thank you for participating."
         self.instructions = \
-            ("Welcome to the MRS study!\n\n"
-             "In this experiment you will see a sequence of pictures. "
-             "Your goal is to remember as many of the pictures as you can "
-             "because we will ask you questions about what you saw.\n\n"
-             "For example, we might ask you if you saw a picture of a dog. "
-             "Sometimes you will know what to look for before you see the "
-             "pictures, but other times we won't ask you about what you saw "
-             "until after the images are gone.\n\n"
-             "After you answer if you saw the target image or not, some of "
-             "the time we will ask you to pick which image you saw, and "
-             "other times we will ask you to type in the name of the picture "
-             "you were looking for even if you didn't see it.\n\n"
-             "Please let the experimenter know when you have completed "
-             "reading these instructions\n\n")
+        ("Welcome to the MRS study!\n\n"
+        "In this experiment you will see a sequence of pictures that "
+        "will flash very quickly on the screen. Your job is to look for "
+        "a particular picture within each sequence.\n\n"
+        "For example, you might see a sequence of pictures and then "
+        "have to decide, yes or no, did you see a picture of a dog anywhere in "
+        "the sequence.\n\n"
+        "Sometimes you will know what to look for before you see the "
+        "pictures. Other times you will be asked if you saw a particular "
+        "picture after you see the pictures.\n\n"
+        "Then we will ask you a question about the target you were looking for. For example, "
+        "you might see two pictures of dogs and have to pick "
+        "which dog picture you saw. Other times you will "
+        "be asked to type in the name of the picture you were looking for.\n\n"
+        "Please let the experimenter know when you have completed reading "
+        "these instructions.\n\n")
 
         self.instructions += self.responseInfo
 
