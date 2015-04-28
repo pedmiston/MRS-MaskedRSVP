@@ -75,8 +75,8 @@ class Exp:
             self.inputDevice = "keyboard"
             self.validResponses = {'1':'up','0':'down'} #change n/o to whatever keys you want to use
             self.leftRightResponses = {'left': 'left', 'right': 'right'}
-            self.responseInfo = "Press the up arrow for 'Yes' and the down arrow for 'No'."
-            self.leftRightResponseInfo = "Press the left arrow for the left image and the right arrow for the right image."
+            self.responseInfo = "Press the up arrow if you saw the target and the down arrow if you didn't see the target."
+            self.leftRightResponseInfo = "Press the left arrow if you saw the left image or the right arrow if you saw the right image."
 
         self.win = visual.Window(fullscr=True, color=[.3,.3,.3], allowGUI=False, monitor='testMonitor',units='pix',winType='pyglet')
 
@@ -120,17 +120,16 @@ class ExpPresentation(trial):
         """This loads all the stimili and initializes the trial sequence"""
         self.fixSpot = visual.TextStim(self.experiment.win,text="+",height = 30,color="black")
 
-        #self.frame = newRect(self.experiment.win,size=(310,310),pos=(0,0),color='gray')
         frame_size = 620
         self.frame = visual.Rect(self.experiment.win, size = (frame_size, frame_size),
                 pos = (0, 0), lineColor = 'black')
-        #self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
-        #self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
 
         self.namePrompt = newText(self.experiment.win, "", pos=[0,0],
                 color = "black", scale = 1.6)
-        self.testPrompt = newText(self.experiment.win, "Yes or No?\n"+self.experiment.responseInfo, pos=[0,200],
+        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
                 color = "black", scale = 1.6)
+        self.yesNoResponseKeysReminder = newText(self.experiment.win, self.experiment.responseInfo,
+                pos = [0, -300], color = "gray", scale = 1.0)
         self.promptTextResponse = newText(self.experiment.win, "What was the object you were looking for?", pos = [0,200],
                 color = "black", scale = 1.0)
         self.promptLeftRightResponse = newText(self.experiment.win, "Left or Right?\n"+self.experiment.leftRightResponseInfo, color = 'black', scale = 1.0, pos = [0, 200])
@@ -290,7 +289,7 @@ class ExpPresentation(trial):
             self.experiment.win.flip()
 
         # 9. Y/N prompt
-        setAndPresentStimulus(self.experiment.win, [self.testPrompt, self.frame])
+        setAndPresentStimulus(self.experiment.win, [self.testPrompt, self.frame, self.yesNoResponseKeysReminder])
 
         correctResp = str(curTrial['isTargetPresent'])
         if self.experiment.inputDevice=='keyboard':
