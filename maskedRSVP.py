@@ -235,16 +235,16 @@ class ExpPresentation(trial):
 
         # 2. Target name or blank
         textTimeWhenTargetBefore = 0.700
+        maskIntervalDuration = 0.500
         if curTrial['whenTargetName'] == 'before':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
             core.wait(textTimeWhenTargetBefore)
-        else:
-            self.experiment.win.flip()
 
-        # 3. Mask or blank
-        maskIntervalDuration = 0.500
-        if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'before':
-            self.presentVisualInterference(maskIntervalDuration)
+            if curTrial['isMask'] == 1:
+                self.presentVisualInterference(maskIntervalDuration)
+            else:
+                self.experiment.win.flip()
+                core.wait(maskIntervalDuration)
         else:
             self.experiment.win.flip()
 
@@ -270,12 +270,12 @@ class ExpPresentation(trial):
         if curTrial['whenTargetName'] == 'after':
             setAndPresentStimulus(self.experiment.win, [self.namePrompt, ])
             core.wait(textTimeWhenTargetAfter)
-        else:
-            self.experiment.win.flip()
 
-        # 8. Mask or blank
-        if curTrial['isMask'] == 1 and curTrial['whenMask'] == 'after':
-            self.presentVisualInterference(maskIntervalDuration)
+            if curTrial['isMask'] == 1:
+                self.presentVisualInterference(maskIntervalDuration)
+            else:
+                self.experiment.win.flip()
+                core.wait(maskIntervalDuration)
         else:
             self.experiment.win.flip()
 
