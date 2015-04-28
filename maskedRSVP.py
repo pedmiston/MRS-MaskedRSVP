@@ -115,14 +115,14 @@ class ExpPresentation(trial):
         self.expTimer = core.Clock()
         """This loads all the stimili and initializes the trial sequence"""
         self.fixSpot = visual.TextStim(self.experiment.win,text="+",height = 30,color="black")
-        self.rectOuter = newRect(self.experiment.win,size=(310,310),pos=(0,0),color='gray')
-        self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
 
-        self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
+        #self.rectOuter = newRect(self.experiment.win,size=(310,310),pos=(0,0),color='gray')
+        #self.rectInner = newRect(self.experiment.win,size=(305,305),pos=(0,0),color='white')
+        #self.targetRectOuter = newRect(self.experiment.win,size=(320,320),pos=(0,0),color='green')
 
-        self.namePrompt = newText(self.experiment.win, "", pos=[200, 0],
+        self.namePrompt = newText(self.experiment.win, "", pos=[0,200],
                 color = "black", scale = 1.6)
-        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
+        self.testPrompt = newText(self.experiment.win, "?", pos=[0,200],
                 color = "black", scale = 1.6)
         self.promptTextResponse = newText(self.experiment.win, "What was the name of the object you were looking for?", pos = [-300, 0],
                 color = "black", scale = 1.6)
@@ -140,7 +140,6 @@ class ExpPresentation(trial):
 
         targets = loadFiles(Path('stimuli', 'images', 'targets'), 'jpg', 'image', self.experiment.win)
         distractors = loadFiles(Path('stimuli', 'images', 'distractors-1000'), 'jpg', 'image', self.experiment.win)
-        print distractors.keys()
 
         # load targets and distractors in the same matrix
         self.pictureMatrix = targets
@@ -157,7 +156,7 @@ class ExpPresentation(trial):
             sys.exit("Exiting experiment")
 
     def presentVisualInterference(self, duration):
-        MASK_REFRESH = 0.0083 * 4
+        MASK_REFRESH = 0.0083
         timer = core.Clock()
         startTime = timer.getTime()
         while timer.getTime() - startTime < duration:
@@ -172,7 +171,8 @@ class ExpPresentation(trial):
         similarity='*'
         respText = newText(self.experiment.win," ",pos=[0,-270],color="black",scale=1)
         stimToDraw.draw()
-        responseReminder = newText(self.experiment.win,"Please type the words/letters above. Don't worry about upper/lowercase",pos=[0,-150],color="gray",scale=.7)
+        responseReminder = newText(self.experiment.win,"Please type the words/letters above. Don't worry about upper/lowercase",pos=[0,0],color="gray",scale=.7)
+
         #newText is a function in stimPresPsychopy.. just creates a psychopy text obj
         responseReminder.setAutoDraw(True)
         self.experiment.win.flip()
@@ -250,7 +250,7 @@ class ExpPresentation(trial):
         for curPicIndex in range(6):
             curPicName = curTrial['picFile'+str(curPicIndex+1)]
             curPic = self.pictureMatrix[curPicName][0]
-            setAndPresentStimulus(self.experiment.win, [self.rectOuter, self.rectInner, curPic])
+            setAndPresentStimulus(self.experiment.win, [curPic, ])
             core.wait(curTrial['picDurationSec'])
 
         # 6. Post-sequence blank
@@ -361,18 +361,21 @@ class ExpPresentation(trial):
 
     def cycleThroughExperimentTrials(self,whichPart):
         if whichPart == "practice":
-            trialIndices = random.sample(range(1,50),self.experiment.numPracticeTrials)
-            curTrialIndex=0
-            for curPracticeTrial in trialIndices:
-                self.presentTestTrial(whichPart,self.trialListMatrix.getFutureTrial(curPracticeTrial),curTrialIndex)
+            curTrialIndex = 0
+            for curTrial in self.trialListMatrix:
+                if curTrial['blockNum'] > -1:
+                    break
+                self.presentTestTrial(whichPart, curTrial, curTrialIndex)
+                curTrialIndex += 1
         else:
             curTrialIndex=0
             for curTrial in self.trialListMatrix:
-                self.checkExit()
-                if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
-                    showText(self.experiment.win,self.experiment.takeBreak,color=(0,0,0),inputDevice=self.experiment.inputDevice) #take a break
-                self.presentTestTrial(whichPart,curTrial,curTrialIndex)
-                curTrialIndex+=1
+                if curTrial['blockNum'] > -1:
+                    self.checkExit()
+                    if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
+                        showText(self.experiment.win,self.experiment.takeBreak,color=(0,0,0),inputDevice=self.experiment.inputDevice) #take a break
+                    self.presentTestTrial(whichPart,curTrial,curTrialIndex)
+                    curTrialIndex+=1
             #close test file
             self.experiment.outputFileTest.close()
 
