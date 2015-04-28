@@ -12,10 +12,10 @@ def chooseTargetAndFoil(name, opts):
     """
     choices = opts[opts.picName == name]
     pics = choices.picFile.tolist()
-    assert len(pics) == 2, \
-        "There were more than 2 pics with the name {}".format(name)
+    assert len(pics) >= 2, \
+        "There weren't enough pics with the name {}".format(name)
     random.shuffle(pics)
-    return pics
+    return pics[0:2]
 
 def listToLine(orderedList):
     stringParams = map(str, orderedList)
@@ -62,8 +62,8 @@ def main(trialsFileName, seed):
 
     blocks = blocks.append(practiceBlock).sort()
 
-    numPracticeTrials = 4
-    trialsPerBlock = 80
+    numPracticeTrials = 5
+    trialsPerBlock = 32
     proportionTargetPresent = 0.75
 
     targetPresentTrials = int(trialsPerBlock * proportionTargetPresent)
@@ -83,7 +83,7 @@ def main(trialsFileName, seed):
     targetNameList = targets.picName.unique().tolist()
     random.shuffle(targetNameList)
 
-    distractors = pd.read_csv(Path('stimuli', 'images', 'distractors.csv'),
+    distractors = pd.read_csv(Path('stimuli', 'images', 'distractors-1000.csv'),
             names = ['picFile', ])
     distractorList = distractors.picFile.tolist()
     random.shuffle(distractorList)

@@ -1,0 +1,135 @@
+part,blockNum,targetName,targetFile,foilFile,whenTargetName,isMask,whenMask,picDurationType,picDurationSec,targetPos,picFile1,picFile2,picFile3,picFile4,picFile5,picFile6,isTargetPresent,whichTarget
+practice,-1,cabinet,cabinet1.jpg,cabinet2.jpg,before,0,before,long,0.083,2,ABLACKB12.jpg,cabinet1.jpg,Azucchini9.jpg,Acomputerpro3.jpg,26386846.thl.jpg,36407647.thl.jpg,1,right
+practice,-1,stuffed rabbit,stuffedrabbit1.jpg,stuffedrabbit2.jpg,before,1,before,long,0.083,2,kimono.jpg,stuffedrabbit1.jpg,AAPPCOVE2.jpg,AASPHALT.jpg,26375982.thl.jpg,ATEETH7.jpg,1,right
+practice,-1,cell phone,cellphone2.jpg,cellphone1.jpg,before,0,before,long,0.083,5,AWEIGHT7.jpg,26684634.thl.jpg,26420830.thl.jpg,AMECHHAN4.jpg,cellphone2.jpg,Akangarooandb.jpg,1,left
+practice,-1,chip bag,chipbag1.jpg,chipbag2.jpg,before,1,before,long,0.083,3,Arake3.jpg,Aladder2.jpg,chipbag1.jpg,22875816.thl.jpg,26554880.thl.jpg,AGERMANH4.jpg,1,left
+practice,-1,poker chips,pokerchips1.jpg,pokerchips2.jpg,before,0,before,long,0.083,5,AABSTRACT.jpg,ATAPEDIS7.jpg,Atropicalpine.jpg,DSCN3757-sm.jpg,pokerchips1.jpg,Adryflo15.jpg,1,right
+practice,-1,potato chips,potatochips1.jpg,potatochips2.jpg,before,1,before,long,0.083,3,AROCKCH27.jpg,Ametalstool2.jpg,potatochips1.jpg,chocolatbox.jpg,AHEADLIG9.jpg,Aenvelope2.jpg,1,right
+test,0,rake,rake2.jpg,rake1.jpg,after,0,after,long,0.083,3,AEAREXAM2.jpg,Afrenchtoast5.jpg,rake2.jpg,ACROQUET2.jpg,Adalmatiandog.jpg,shavingcream01.jpg,1,right
+test,0,toy dinosaur,toydinosaur2.jpg,toydinosaur1.jpg,after,0,after,long,0.083,5,AGONG12.jpg,ACANE2.jpg,26433942.thl.jpg,Afoodproces27.jpg,toydinosaur2.jpg,Aspraybottle4.jpg,1,right
+test,0,cup,NA,NA,after,0,after,long,0.083,-1,AFERRY5.jpg,AFUNNEL4.jpg,securitycamera.jpg,ignitionkey01.jpg,22911500.thl.jpg,AASPHALT.jpg,0,NA
+test,0,folder,NA,NA,after,1,after,long,0.083,-1,AAFRICI13.jpg,AOVENMIT5.jpg,Aflowerpot15.jpg,Askirt3.jpg,Aegyptianst20.jpg,Achest20.jpg,0,NA
+test,0,cheese and crackers,cheeseandcrackers2.jpg,cheeseandcrackers1.jpg,after,0,after,long,0.083,5,ATISSUE.jpg,Aearsyringe.jpg,AFOODTAB2.jpg,AARTOOTH2.jpg,cheeseandcrackers2.jpg,AEMERGLI4.jpg,1,left
+test,0,hourglass,hourglass2.jpg,hourglass1.jpg,after,0,after,long,0.083,3,Abrooch100.jpg,AHEATER.jpg,hourglass2.jpg,AGUINEAP2.jpg,Aornamentalt5.jpg,Acarjack2.jpg,1,left
+test,0,corkscrew,corkscrew1.jpg,corkscrew2.jpg,after,0,after,long,0.083,2,APLATE17.jpg,corkscrew1.jpg,ABOY.jpg,Acampingcoffe.jpg,Acreamer35.jpg,AHONEYSTI.jpg,1,left
+test,0,pencil sharpener,pencilsharpener1.jpg,pencilsharpener2.jpg,after,1,after,long,0.083,5,ARIBBON9.jpg,ABUFFALO.jpg,AADDBOOK.jpg,ACUSTMACH.jpg,pencilsharpener1.jpg,23070064.thl.jpg,1,right
+test,0,pen,NA,NA,after,1,after,long,0.083,-1,APARKMET6.jpg,ABROCHETT.jpg,Abeverageingl.jpg,Atintelephone.jpg,blackjackcasinotable.jpg,ALIONWALK.jpg,0,NA
+test,0,breadbox,breadbox1.jpg,breadbox2.jpg,after,1,after,long,0.083,5,Acementfinish.jpg,Akangarooandb.jpg,Aclamp55.jpg,AGRILL1.jpg,breadbox1.jpg,ACURLINGI.jpg,1,left
+test,0,shoe,shoe1.jpg,shoe2.jpg,after,0,after,long,0.083,4,26421536.thl.jpg,Adicecupandb5.jpg,Acrackersandc.jpg,shoe1.jpg,Akiddcup2.jpg,Aintercom6.jpg,1,left
+test,0,piano,piano1.jpg,piano2.jpg,after,1,after,long,0.083,3,ATOOTHBR3.jpg,26377777.thl.jpg,piano1.jpg,26442719.thl.jpg,ANAILFILE.jpg,AWASHRACK.jpg,1,left
+test,0,flask,NA,NA,after,1,after,long,0.083,-1,launmower.jpg,chocolatepowder.jpg,AGOAT10.jpg,Acompactdisc2.jpg,APIESERVE.jpg,ASALABOW4.jpg,0,NA
+test,0,teapot,teapot1.jpg,teapot2.jpg,after,0,after,long,0.083,3,26391514.thl.jpg,Adress6.jpg,teapot1.jpg,26687931.thl.jpg,AANTOAST3.jpg,Asunflower3.jpg,1,right
+test,0,razor,razor1.jpg,razor2.jpg,after,0,after,long,0.083,2,lollipops.jpg,razor1.jpg,ATHERMO12.jpg,AWALKMAN2.jpg,ABARPEAR.jpg,ALIQBOOK.jpg,1,right
+test,0,mixer,mixer1.jpg,mixer2.jpg,after,1,after,long,0.083,2,AGARLICCO.jpg,mixer1.jpg,AROBES4.jpg,Acrib12.jpg,Abrooch100.jpg,Abasketofbrea.jpg,1,left
+test,0,scratchcard,NA,NA,after,0,after,long,0.083,-1,8027656.thl.jpg,ABLUBLOTT.jpg,26772997.thl.jpg,AHCONGADR.jpg,Aoutdoorhalo2.jpg,tires.jpg,0,NA
+test,0,soap,soap2.jpg,soap1.jpg,after,1,after,long,0.083,5,Aroadsignind3.jpg,22921112.thl.jpg,dftslturapr.jpg,Aconcreteblo3.jpg,soap2.jpg,ACOWCREAM.jpg,1,left
+test,0,turtle,turtle1.jpg,turtle2.jpg,after,1,after,long,0.083,3,26374787.thl.jpg,Aalligator4.jpg,turtle1.jpg,Ataco.jpg,frog-a.jpg,AOUTHOUSE.jpg,1,left
+test,0,phone,NA,NA,after,0,after,long,0.083,-1,ASCYTHE7.jpg,Acanopener5.jpg,Akitchensinka.jpg,ACROQUET2.jpg,ADRIARRA2.jpg,APLAQUE.jpg,0,NA
+test,0,puppet,puppet1.jpg,puppet2.jpg,after,1,after,long,0.083,2,Aplasticbot10.jpg,puppet1.jpg,APIPE8.jpg,ALAMP.jpg,AGUINEAP2.jpg,Asaxophone.jpg,1,left
+test,0,plate,plate1.jpg,plate2.jpg,after,1,after,long,0.083,5,26394018.thl.jpg,Aeggcup224.jpg,Afeatherdust2.jpg,Abicyclehand5.jpg,plate1.jpg,Asafetybelt.jpg,1,left
+test,0,bucket,bucket1.jpg,bucket2.jpg,after,0,after,long,0.083,5,ABABYDOLL.jpg,Apedestal3.jpg,frog-a.jpg,36407726.thl.jpg,bucket1.jpg,ABAT.jpg,1,left
+test,0,toilet,NA,NA,after,0,after,long,0.083,-1,Atoyball.jpg,22827408.thl.jpg,8029703.thl.jpg,ABARBCHA3.jpg,8258244.thl.jpg,ATHERMO4.jpg,0,NA
+test,0,spray bottle,spraybottle1.jpg,spraybottle2.jpg,after,0,after,long,0.083,3,AIVORSUIT.jpg,26433387.thl.jpg,spraybottle1.jpg,26370445.thl.jpg,ATEALANT8.jpg,ANWSPAPER.jpg,1,left
+test,0,laptop,laptop1.jpg,laptop2.jpg,after,0,after,long,0.083,4,woodvase.jpg,AGARBCAN.jpg,Adice10.jpg,laptop1.jpg,AMAGGLASS.jpg,Ahat47.jpg,1,left
+test,0,chip,chip2.jpg,chip1.jpg,after,1,after,long,0.083,5,ABAKINGPA.jpg,AEXERCBIK.jpg,ACAROUSE2.jpg,Aframe196.jpg,chip2.jpg,ACEREAL.jpg,1,left
+test,0,acoustic guitar,acousticguitar2.jpg,acousticguitar1.jpg,after,0,after,long,0.083,4,AGLASSCAS.jpg,Atoyfurnitu14.jpg,26433387.thl.jpg,acousticguitar2.jpg,Aspokesfaste2.jpg,Akitchenisla4.jpg,1,right
+test,0,chair,chair2.jpg,chair1.jpg,after,1,after,long,0.083,3,AASPHALT.jpg,ADIPPER6.jpg,chair2.jpg,Acocktailumb4.jpg,caramel.jpg,saltpeppershakerjpg.jpg,1,right
+test,0,binocular,NA,NA,after,1,after,long,0.083,-1,Atoydoll12.jpg,kimono.jpg,Apokerchips3.jpg,clawhairclips.jpg,Heatpad.jpg,Acheque.jpg,0,NA
+test,0,gummy candy,gummycandy2.jpg,gummycandy1.jpg,after,1,after,long,0.083,2,Acucumber2.jpg,gummycandy2.jpg,AMILPHONE.jpg,Afoodproces27.jpg,Awindmill3.jpg,Amountaingoa2.jpg,1,right
+test,0,clock,clock1.jpg,clock2.jpg,after,1,after,long,0.083,2,26426417.thl.jpg,clock1.jpg,Avideocamera2.jpg,pencil-a.jpg,ARCMPPOL2.jpg,Acabinetdraw8.jpg,1,right
+test,1,calculator,calculator2.jpg,calculator1.jpg,after,0,after,short,0.025,4,ARUSH.jpg,26375896.thl.jpg,Adiamondring3.jpg,calculator2.jpg,babyseatback.jpg,DSCN1248-sm.jpg,1,left
+test,1,earbuds,earbuds1.jpg,earbuds2.jpg,after,1,after,short,0.025,3,ASAFE.jpg,22949719.thl.jpg,earbuds1.jpg,Arooster15.jpg,Aoutdoorhalo2.jpg,Apilldispens3.jpg,1,left
+test,1,key,key1.jpg,key2.jpg,after,1,after,short,0.025,5,ABOTTLE19.jpg,APAPYRUS.jpg,26427867.thl.jpg,AGARDHOSE.jpg,key1.jpg,AWATERJU3.jpg,1,right
+test,1,mug,mug2.jpg,mug1.jpg,after,0,after,short,0.025,4,22827540.thl.jpg,ACOFFGRI9.jpg,Abloodorange.jpg,mug2.jpg,AANTTRUCK.jpg,Awoodenhamme8.jpg,1,left
+test,1,headphones,headphones1.jpg,headphones2.jpg,after,0,after,short,0.025,3,26427111.thl.jpg,Awaffle3.jpg,headphones1.jpg,Aconferencer3.jpg,AWHISBARR.jpg,APHARAOH.jpg,1,right
+test,1,scanner,NA,NA,after,1,after,short,0.025,-1,Afirealarm2.jpg,Agreenplastic.jpg,AWASHRACK.jpg,ADIPPER6.jpg,Abox80.jpg,Awindtoy5.jpg,0,NA
+test,1,pizza,NA,NA,after,1,after,short,0.025,-1,sausage.jpg,Aglass58.jpg,8252065.thl.jpg,cd2-a.jpg,Atoywheels.jpg,ACDRAINER.jpg,0,NA
+test,1,balloon,balloon1.jpg,balloon2.jpg,after,0,after,short,0.025,3,Areceptacle3.jpg,Agreenplastic.jpg,balloon1.jpg,Atray26.jpg,26428110.thl.jpg,26373195.thl.jpg,1,left
+test,1,book,book2.jpg,book1.jpg,after,0,after,short,0.025,5,AEAREXAM2.jpg,Amonitor10.jpg,AANTICOT.jpg,22827276.thl.jpg,book2.jpg,Abeetle10.jpg,1,right
+test,1,watch,NA,NA,after,0,after,short,0.025,-1,APHARAOH.jpg,ACLOSET4.jpg,26421106.thl.jpg,AAGATE.jpg,AATOMODEL.jpg,Agardeningrak.jpg,0,NA
+test,1,umbrella,umbrella2.jpg,umbrella1.jpg,after,0,after,short,0.025,4,Atoycoffeepo2.jpg,AREDROSE8.jpg,ADOGSNACK.jpg,umbrella2.jpg,AMUFFIPAN.jpg,Agoattoy7.jpg,1,left
+test,1,sunglasses,sunglasses2.jpg,sunglasses1.jpg,after,1,after,short,0.025,2,26387436.thl.jpg,sunglasses2.jpg,ADIRECSI3.jpg,ABULLMASK.jpg,Azebratoy2.jpg,Agraduationh2.jpg,1,left
+test,1,starfish,starfish1.jpg,starfish2.jpg,after,1,after,short,0.025,2,eutslfl.jpg,starfish1.jpg,Alifeves2.jpg,10053712.thm.jpg,AFUNNEL4.jpg,AWASHMAC5.jpg,1,left
+test,1,cooking pot,cookingpot1.jpg,cookingpot2.jpg,after,1,after,short,0.025,3,Aantelopesku5.jpg,Aantiquemeta2.jpg,cookingpot1.jpg,AFRYPAN7.jpg,AKNIFECOL.jpg,matchbook.jpg,1,right
+test,1,peppers,peppers2.jpg,peppers1.jpg,after,1,after,short,0.025,5,hotgreenpepper.jpg,ABAPITCHS.jpg,AMUFFIPAN.jpg,Apaperclip6.jpg,peppers2.jpg,Abagofherbs.jpg,1,right
+test,1,muffin,NA,NA,after,1,after,short,0.025,-1,AELECRAZ7.jpg,AGAME.jpg,ADOORHAN8.jpg,AWEDCOU19.jpg,26374767.thl.jpg,26463767.thl.jpg,0,NA
+test,1,scissors,scissors1.jpg,scissors2.jpg,after,0,after,short,0.025,3,AHOOK11.jpg,AANTMILK.jpg,scissors1.jpg,26440073.thl.jpg,8078142.thl.jpg,Amannequin2.jpg,1,right
+test,1,trophy,trophy1.jpg,trophy2.jpg,after,1,after,short,0.025,2,petfood.jpg,trophy1.jpg,ASLED7.jpg,AFIGHTP16.jpg,AMAILBO28.jpg,Acanister10.jpg,1,left
+test,1,can opener,canopener2.jpg,canopener1.jpg,after,0,after,short,0.025,4,picFile,ACLAM.jpg,AGARLICCO.jpg,canopener2.jpg,Atintelephone.jpg,radish.jpg,1,right
+test,1,juice,NA,NA,after,1,after,short,0.025,-1,26379570.thl.jpg,8255981.thl.jpg,Acardboardpan.jpg,APALLETT2.jpg,ABIRDCAG2.jpg,AANTSTOV6.jpg,0,NA
+test,1,hole puncher,holepuncher2.jpg,holepuncher1.jpg,after,0,after,short,0.025,2,igloo.jpg,holepuncher2.jpg,AICEAXE2.jpg,Aacupuncture2.jpg,Aalmond4.jpg,AANTMILK.jpg,1,right
+test,1,gardening hoe,gardeninghoe1.jpg,gardeninghoe2.jpg,after,1,after,short,0.025,2,Agreenleaf3.jpg,gardeninghoe1.jpg,ABLOODCEA.jpg,AWINTGLO3.jpg,8258244.thl.jpg,AMICRO67.jpg,1,right
+test,1,animal skull,NA,NA,after,0,after,short,0.025,-1,Apyramid3.jpg,Atoyparrot2.jpg,26421538.thl.jpg,Arunningshoe4.jpg,Atool221.jpg,Ahotwaterbot2.jpg,0,NA
+test,1,bicycle,bicycle1.jpg,bicycle2.jpg,after,0,after,short,0.025,5,AARROWS2.jpg,Atintelephone.jpg,ACOMB11.jpg,whiteboard.jpg,bicycle1.jpg,26467460.thl.jpg,1,right
+test,1,fridge,NA,NA,after,0,after,short,0.025,-1,26372669.thl.jpg,Apostalscale2.jpg,ASTAR.jpg,Awoodplaner2.jpg,kermitthefrog.jpg,ABPIECE2.jpg,0,NA
+test,1,chocolate bar,chocolatebar2.jpg,chocolatebar1.jpg,after,1,after,short,0.025,2,26439898.thl.jpg,chocolatebar2.jpg,26374798.thl.jpg,Aboot9.jpg,8257947.thl.jpg,22887480.thl.jpg,1,right
+test,1,fan,fan1.jpg,fan2.jpg,after,0,after,short,0.025,3,Aturban.jpg,Aicecrusher2.jpg,fan1.jpg,ABABYSPOO.jpg,ALITTERB2.jpg,A_flower.jpg,1,right
+test,1,microwave,microwave1.jpg,microwave2.jpg,after,1,after,short,0.025,2,8055554.thl.jpg,microwave1.jpg,26419670.thl.jpg,surfboard.jpg,moistureproduct.jpg,Afoodproces13.jpg,1,right
+test,1,lock,lock1.jpg,lock2.jpg,after,1,after,short,0.025,4,Aseat3.jpg,23028486.thl.jpg,26429097.thl.jpg,lock1.jpg,ATOILBAG2.jpg,AWREATH9.jpg,1,right
+test,1,sugar,NA,NA,after,0,after,short,0.025,-1,ATOASTOV2.jpg,Atwowayradio2.jpg,26377183.thl.jpg,AMETICUBE.jpg,marshmallows.jpg,Aspinningwhe2.jpg,0,NA
+test,1,stone archway,stonearchway2.jpg,stonearchway1.jpg,after,0,after,short,0.025,2,26418799.thl.jpg,stonearchway2.jpg,ACROWNPEN.jpg,dvdmovie.jpg,AANTIQTHE.jpg,AARTIVE6.jpg,1,right
+test,1,picture frame,pictureframe2.jpg,pictureframe1.jpg,after,1,after,short,0.025,2,AARTDUCK3.jpg,pictureframe2.jpg,ADECKCARD.jpg,26390325.thl.jpg,ACURLER.jpg,Acactus58.jpg,1,right
+test,2,water bottle,waterbottle2.jpg,waterbottle1.jpg,before,0,before,long,0.083,2,Hammock.jpg,waterbottle2.jpg,AMEAT2.jpg,Achair485.jpg,8024092.thl.jpg,APLASCONT.jpg,1,right
+test,2,icecream,icecream1.jpg,icecream2.jpg,before,1,before,long,0.083,2,35310232.thl.jpg,icecream1.jpg,B_makeupbag.jpg,AFISHNET3.jpg,AGERMANH4.jpg,A95CHEROK.jpg,1,left
+test,2,bread,NA,NA,before,0,before,long,0.083,-1,batteries-a.jpg,Akazoo2.jpg,Apercussioni3.jpg,trapezebars.jpg,Achair618.jpg,30835757.thl.jpg,0,NA
+test,2,pacifier,NA,NA,before,1,before,long,0.083,-1,licorice.jpg,whitemalerobe.jpg,34936916.thl.jpg,26437074.thl.jpg,Agrilledmeata.jpg,matchbook.jpg,0,NA
+test,2,santa hat,santahat1.jpg,santahat2.jpg,before,0,before,long,0.083,4,ASATELLIT.jpg,moistureproduct.jpg,AJOYSTIC1.jpg,santahat1.jpg,AWEDCOU19.jpg,Aeggcup224.jpg,1,right
+test,2,kettle,kettle1.jpg,kettle2.jpg,before,0,before,long,0.083,2,ABUSINEST.jpg,kettle1.jpg,gingerbreadcookie.jpg,26427983.thl.jpg,26427983.thl.jpg,8068401.thl.jpg,1,right
+test,2,hose,hose1.jpg,hose2.jpg,before,1,before,long,0.083,5,Chevypickup.jpg,visacard.jpg,Aflask19.jpg,ACOWBOYH3.jpg,hose1.jpg,pencil-a.jpg,1,left
+test,2,apple,NA,NA,before,1,before,long,0.083,-1,zip-a.jpg,Atoyworm.jpg,26422598.thl.jpg,AKNIFECOL.jpg,Awoodenegg.jpg,ACAMLENSE.jpg,0,NA
+test,2,chapstick,NA,NA,before,0,before,long,0.083,-1,Aflamingo4.jpg,Aleaf75.jpg,8255030.thl.jpg,Amagnifyinglo.jpg,Aplastictestt.jpg,26373195.thl.jpg,0,NA
+test,2,menu,menu1.jpg,menu2.jpg,before,1,before,long,0.083,4,Afrenchtoast5.jpg,8026164.thl.jpg,dftslpi.jpg,menu1.jpg,AMEASDEVI.jpg,Atoybucketan4.jpg,1,right
+test,2,mailbox,mailbox2.jpg,mailbox1.jpg,before,1,before,long,0.083,5,A_flower.jpg,APARSLEY.jpg,Aknife76.jpg,Acomputerpro3.jpg,mailbox2.jpg,Aclock261.jpg,1,left
+test,2,toolbox,toolbox1.jpg,toolbox2.jpg,before,0,before,long,0.083,2,22857192.thl.jpg,toolbox1.jpg,Asword138.jpg,ABREASPU2.jpg,AMANCLIP5.jpg,26433686.thl.jpg,1,right
+test,2,soccer ball,soccerball1.jpg,soccerball2.jpg,before,0,before,long,0.083,5,ADRIARRA2.jpg,darkwador.jpg,ABARPEAR.jpg,Awaffle3.jpg,soccerball1.jpg,Afeatherdust2.jpg,1,left
+test,2,helmet,helmet2.jpg,helmet1.jpg,before,1,before,long,0.083,3,Atoymerrygoro.jpg,ALAMP45.jpg,helmet2.jpg,AWISHWELL.jpg,ABALLBEAR.jpg,23077768.thl.jpg,1,left
+test,2,abacus,NA,NA,before,0,before,long,0.083,-1,Aclamp42.jpg,23048010.thl.jpg,AKEYHOL10.jpg,pinecone02.jpg,Acrayonsinabo.jpg,Avacuum13.jpg,0,NA
+test,2,tape dispenser,tapedispenser1.jpg,tapedispenser2.jpg,before,0,before,long,0.083,5,ACUTLERY5.jpg,Apercussion16.jpg,ABATHTAP.jpg,26434250.thl.jpg,tapedispenser1.jpg,ACHIPROL2.jpg,1,left
+test,2,stapler,stapler2.jpg,stapler1.jpg,before,0,before,long,0.083,4,Awildberries.jpg,AANTFRYI2.jpg,igloo.jpg,stapler2.jpg,ALITTERB2.jpg,ACLOSET4.jpg,1,left
+test,2,cow,cow2.jpg,cow1.jpg,before,1,before,long,0.083,4,ABATHTAP.jpg,AHEADLI18.jpg,AJEWISHTA.jpg,cow2.jpg,AJEWELBO3.jpg,AAMBULAN7.jpg,1,right
+test,2,toy airplane,toyairplane1.jpg,toyairplane2.jpg,before,1,before,long,0.083,5,AHEADLIG9.jpg,sportsillustrated.jpg,AEAREXAM2.jpg,9821274.thl.jpg,toyairplane1.jpg,ABALLER29.jpg,1,left
+test,2,basket,basket2.jpg,basket1.jpg,before,0,before,long,0.083,4,sprinkler.jpg,AGLASSEY5.jpg,Aeasteregg14.jpg,basket2.jpg,AOLDBAT2.jpg,AWREATH9.jpg,1,right
+test,2,fishbowl,fishbowl2.jpg,fishbowl1.jpg,before,1,before,long,0.083,3,ADRESS2.jpg,sandcastle.jpg,fishbowl2.jpg,23048010.thl.jpg,chocolatepowder.jpg,ALAZQUART.jpg,1,left
+test,2,chocolate cake,NA,NA,before,1,before,long,0.083,-1,ASALINES5.jpg,hottub.jpg,airbottle1.jpg,Acroissant.jpg,Aantiquebuck2.jpg,Aflowerpot9.jpg,0,NA
+test,2,notebook,notebook2.jpg,notebook1.jpg,before,1,before,long,0.083,3,railroadblock.jpg,AJEWISHTA.jpg,notebook2.jpg,26429130.thl.jpg,cigarette03.jpg,Asewingpins.jpg,1,right
+test,2,traffic cone,trafficcone1.jpg,trafficcone2.jpg,before,1,before,long,0.083,3,ACEILHOOK.jpg,22949719.thl.jpg,trafficcone1.jpg,Acamerabag.jpg,seesaw.jpg,Abugle12.jpg,1,right
+test,2,dryer,dryer1.jpg,dryer2.jpg,before,1,before,long,0.083,3,Acampingtoolk.jpg,Aclock285.jpg,dryer1.jpg,22875384.thl.jpg,AJEWELBO3.jpg,AFORKLIF2.jpg,1,right
+test,2,bottle,bottle1.jpg,bottle2.jpg,before,0,before,long,0.083,4,Aleatherpenc9.jpg,Acatheter.jpg,26457349.thl.jpg,bottle1.jpg,26685948.thl.jpg,AMICRO67.jpg,1,right
+test,2,cookie,cookie1.jpg,cookie2.jpg,before,0,before,long,0.083,4,ringbox03.jpg,Agardeningrak.jpg,AARMYTRUK.jpg,cookie1.jpg,ABUSINEST.jpg,ABABYSPOO.jpg,1,right
+test,2,anchor,NA,NA,before,0,before,long,0.083,-1,26369923.thl.jpg,broccoli.jpg,Acarjack2.jpg,Abrasscr2.jpg,AANTIDRES.jpg,Apaintedwood3.jpg,0,NA
+test,2,peanut butter,peanutbutter1.jpg,peanutbutter2.jpg,before,0,before,long,0.083,2,26433942.thl.jpg,peanutbutter1.jpg,AWOODSPO3.jpg,Aseal3.jpg,Ascarf3.jpg,Acactusplant.jpg,1,right
+test,2,cereal,NA,NA,before,1,before,long,0.083,-1,26373362.thl.jpg,E_tractor.jpg,ABACKHOE2.jpg,AHEATER.jpg,8021410.thl.jpg,Abeermug11.jpg,0,NA
+test,2,horn,horn2.jpg,horn1.jpg,before,1,before,long,0.083,5,Atoydrill4.jpg,Ababytableand.jpg,26370681.thl.jpg,8258007.thl.jpg,horn2.jpg,AWASHPART.jpg,1,left
+test,2,suitcase,suitcase1.jpg,suitcase2.jpg,before,0,before,long,0.083,2,ASTENORA2.jpg,suitcase1.jpg,Adigitalcamer.jpg,Aantiquevege3.jpg,Agratedchees2.jpg,gymvaulting.jpg,1,right
+test,3,pliers,pliers2.jpg,pliers1.jpg,before,1,before,short,0.025,3,ALITTERSC.jpg,AGARLICCO.jpg,pliers2.jpg,AMANCLIP5.jpg,23076640.thl.jpg,26372465.thl.jpg,1,left
+test,3,lei,lei1.jpg,lei2.jpg,before,1,before,short,0.025,2,Atoychestfor3.jpg,lei1.jpg,AELEAGEN3.jpg,8065674.thl.jpg,AWEIGHT11.jpg,Astreetlampwi.jpg,1,left
+test,3,cabbage,cabbage2.jpg,cabbage1.jpg,before,0,before,short,0.025,2,Asign7.jpg,cabbage2.jpg,ACAPTAIN9.jpg,AWINEJUG3.jpg,Abackpack11.jpg,Acookiejar14.jpg,1,left
+test,3,backpack,backpack1.jpg,backpack2.jpg,before,0,before,short,0.025,3,Atoy12.jpg,Aconferencer3.jpg,backpack1.jpg,ACHAIR.jpg,A56THUND4.jpg,E_tractor.jpg,1,right
+test,3,plant,plant2.jpg,plant1.jpg,before,1,before,short,0.025,4,AFBLADE.jpg,26390325.thl.jpg,moneyslotmachine.jpg,plant2.jpg,ASTAR.jpg,Aclamp42.jpg,1,left
+test,3,barrel,NA,NA,before,1,before,short,0.025,-1,sandcastle.jpg,ATUNFORK2.jpg,APOTPBAG2.jpg,Abackpack11.jpg,AHOTPAD4.jpg,22849284.thl.jpg,0,NA
+test,3,globe,globe1.jpg,globe2.jpg,before,1,before,short,0.025,5,Abreakpl2.jpg,8255336.thl.jpg,Agreenlighter.jpg,Achildtoy2.jpg,globe1.jpg,AMANJUI2.jpg,1,right
+test,3,guitar,guitar2.jpg,guitar1.jpg,before,1,before,short,0.025,3,ALEGCAST3.jpg,ATOOHOLDE.jpg,guitar2.jpg,Acomputer11.jpg,cranemachine.jpg,ADRIARRA2.jpg,1,left
+test,3,wheelchair,NA,NA,before,1,before,short,0.025,-1,AHEDGEHOG.jpg,grips.jpg,AAIRPRES4.jpg,26441591.thl.jpg,26372237.thl.jpg,31023139.thl.jpg,0,NA
+test,3,hot air balloon,NA,NA,before,0,before,short,0.025,-1,medievalknight.jpg,10053213.thm.jpg,sprinkler.jpg,26427906.thl.jpg,Acamelsculpt2.jpg,Aantiquepock3.jpg,0,NA
+test,3,coins,coins1.jpg,coins2.jpg,before,0,before,short,0.025,2,Afirstaidkit3.jpg,coins1.jpg,ATELEBO13.jpg,26466347.thl.jpg,Astonehome.jpg,APUPPY26.jpg,1,right
+test,3,glass,glass2.jpg,glass1.jpg,before,0,before,short,0.025,2,Aantiquejuke2.jpg,glass2.jpg,AEXERCBIK.jpg,catslmifru.jpg,A_teabag.jpg,26391173.thl.jpg,1,right
+test,3,typewriter,typewriter1.jpg,typewriter2.jpg,before,1,before,short,0.025,3,ABUILDAR4.jpg,Aeiffeltower2.jpg,typewriter1.jpg,ASPRITZER.jpg,sandbox.jpg,AWOODMAS9.jpg,1,right
+test,3,kayak,kayak2.jpg,kayak1.jpg,before,0,before,short,0.025,3,AARTPLANT.jpg,AFISH20.jpg,kayak2.jpg,A56THUND4.jpg,jellybellygum.jpg,AGARDHOSE.jpg,1,left
+test,3,train,NA,NA,before,0,before,short,0.025,-1,26433849.thl.jpg,Abugle12.jpg,Achickendinne.jpg,ASALTPEPP.jpg,fortune-cookie.jpg,slide.jpg,0,NA
+test,3,park meter,parkmeter1.jpg,parkmeter2.jpg,before,1,before,short,0.025,3,ARECORDSY.jpg,Amonkey5.jpg,parkmeter1.jpg,26423477.thl.jpg,Aleatherpenc9.jpg,Afunnel17.jpg,1,left
+test,3,soap dispenser,NA,NA,before,1,before,short,0.025,-1,Alatch7.jpg,AKNIFECOL.jpg,ATOYTREE.jpg,Acomputer9.jpg,VMS7B.jpg,ALOVSEA10.jpg,0,NA
+test,3,soap dish,NA,NA,before,0,before,short,0.025,-1,Atable132.jpg,Aleatherbeltp.jpg,AWALKER11.jpg,B_orange.jpg,Aantiquemeta2.jpg,26374767.thl.jpg,0,NA
+test,3,ship,ship2.jpg,ship1.jpg,before,1,before,short,0.025,3,Atool221.jpg,Apulley71.jpg,ship2.jpg,AHUNTVES2.jpg,Acanoe19.jpg,Atropicalpine.jpg,1,left
+test,3,grapes,grape2.jpg,grape1.jpg,before,0,before,short,0.025,3,pacifierthermometer.jpg,26377601.thl.jpg,grape2.jpg,chunkysoup.jpg,APUMPCOOK.jpg,26423175.thl.jpg,1,left
+test,3,scroll,scroll1.jpg,scroll2.jpg,before,0,before,short,0.025,5,ABUSINEST.jpg,ATOWELRA3.jpg,26686595.thl.jpg,APIESERVE.jpg,scroll1.jpg,AASPHEQUA.jpg,1,right
+test,3,money,money2.jpg,money1.jpg,before,0,before,short,0.025,5,AANTRAD24.jpg,Acrib12.jpg,ABIRDCAG2.jpg,APIPEST18.jpg,money2.jpg,ADEEPFRY5.jpg,1,left
+test,3,menorah,menorah1.jpg,menorah2.jpg,before,1,before,short,0.025,3,skateboard.jpg,26377631.thl.jpg,menorah1.jpg,26379612.thl.jpg,ATOWRACK3.jpg,26427983.thl.jpg,1,right
+test,3,tictacs,tictacs2.jpg,tictacs1.jpg,before,1,before,short,0.025,3,ASTOOL.jpg,chunkysoup.jpg,tictacs2.jpg,Aantiquerota7.jpg,Atoymerrygoro.jpg,26439074.thl.jpg,1,left
+test,3,bell,bell1.jpg,bell2.jpg,before,0,before,short,0.025,2,ABOY.jpg,bell1.jpg,AGLASSTRO.jpg,AMEAT2.jpg,scrunchie.jpg,bobbypins.jpg,1,left
+test,3,feather,NA,NA,before,0,before,short,0.025,-1,AKEYHOL10.jpg,scrunchie.jpg,Acomputerdes8.jpg,ADOCKPOST.jpg,JU3VU.jpg,AARTIHAN5.jpg,0,NA
+test,3,log,log2.jpg,log1.jpg,before,0,before,short,0.025,5,razorscooter.jpg,26374135.thl.jpg,26377183.thl.jpg,ACOLFILT5.jpg,log2.jpg,E_statue.jpg,1,right
+test,3,wine,wine1.jpg,wine2.jpg,before,1,before,short,0.025,4,26434233.thl.jpg,Afeatherhat.jpg,26437080.thl.jpg,wine1.jpg,Aspoonofsuga2.jpg,Aantiquesofa4.jpg,1,left
+test,3,tissues,tissues1.jpg,tissues2.jpg,before,1,before,short,0.025,2,ABABYSH33.jpg,tissues1.jpg,APHONEFA2.jpg,AANTIRO13.jpg,8255336.thl.jpg,AMALLET13.jpg,1,right
+test,3,pie,pie1.jpg,pie2.jpg,before,0,before,short,0.025,5,Asign7.jpg,ATIMECLO3.jpg,AEMERGLI4.jpg,ACUSHIO60.jpg,pie1.jpg,AARMCHA25.jpg,1,left
+test,3,highlighter,NA,NA,before,1,before,short,0.025,-1,Aradio24.jpg,Acroissant.jpg,ABROOCH41.jpg,26428540.thl.jpg,Astaircase.jpg,ABOOK23.jpg,0,NA
+test,3,gift box,giftbox2.jpg,giftbox1.jpg,before,0,before,short,0.025,3,AANTSTO12.jpg,chocolatebar.jpg,giftbox2.jpg,26389125.thl.jpg,AWALKMAN2.jpg,AMEDIEQUI.jpg,1,left
