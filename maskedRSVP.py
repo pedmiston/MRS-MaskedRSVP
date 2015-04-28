@@ -86,14 +86,14 @@ class Exp:
         ("Welcome to the MRS study!\n\n"
         "In this experiment you will see a sequence of pictures that "
         "will flash very quickly on the screen. Your job is to look for "
-        "a particular picture within each sequence.\n\n"
+        "a particular picture within each sequence. "
         "For example, you might see a sequence of pictures and then "
         "have to decide, yes or no, did you see a picture of a dog anywhere in "
         "the sequence.\n\n"
         "Sometimes you will know what to look for before you see the "
         "pictures. Other times you will be asked if you saw a particular "
         "picture after you see the pictures.\n\n"
-        "Then we will ask you a question about the target you were looking for. For example, "
+        "Afterwards we will ask you a question about the target you were looking for. For example, "
         "you might see two pictures of dogs and have to pick "
         "which dog picture you saw. Other times you will "
         "be asked to type in the name of the picture you were looking for.\n\n"
@@ -120,19 +120,25 @@ class ExpPresentation(trial):
         """This loads all the stimili and initializes the trial sequence"""
         self.fixSpot = visual.TextStim(self.experiment.win,text="+",height = 30,color="black")
 
-        frame_size = 620
+        frame_size = 660
         self.frame = visual.Rect(self.experiment.win, size = (frame_size, frame_size),
                 pos = (0, 0), lineColor = 'black')
 
         self.namePrompt = newText(self.experiment.win, "", pos=[0,0],
-                color = "black", scale = 1.6)
-        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
-                color = "black", scale = 1.6)
-        self.yesNoResponseKeysReminder = newText(self.experiment.win, self.experiment.responseInfo,
-                pos = [0, -300], color = "gray", scale = 1.0)
-        self.promptTextResponse = newText(self.experiment.win, "What was the object you were looking for?", pos = [0,200],
                 color = "black", scale = 1.0)
-        self.promptLeftRightResponse = newText(self.experiment.win, "Left or Right?\n"+self.experiment.leftRightResponseInfo, color = 'black', scale = 1.0, pos = [0, 200])
+        self.testPrompt = newText(self.experiment.win, "?", pos=[0,0],
+                color = "black", scale = 1.0)
+        self.yesNoResponseKeysReminder = newText(self.experiment.win, self.experiment.responseInfo,
+                pos = [0, -220], color = "gray", scale = 1.0)
+        self.promptTextResponse = newText(self.experiment.win,
+                "Type the name of the target object", pos = [0,200],
+                color = "black", scale = 1.0)
+        self.leftRightPrompt = newText(self.experiment.win,
+                "Which object did you see?", color = "black",
+                scale = 1.0, pos = [0, 220])
+        self.leftRightResponseKeyReminder = newText(self.experiment.win, 
+                self.experiment.leftRightResponseInfo, color = 'gray', 
+                scale = 1.0, pos = [0, -220])
 
         showText(self.experiment.win, "Loading Images...",color="black",waitForKey=False)
 
@@ -182,14 +188,12 @@ class ExpPresentation(trial):
         respStr=''
         similarity='*'
         respText = newText(self.experiment.win," ",pos=[0,0],color="black",scale=1)
-        stimToDraw.draw()
-        responseReminder = newText(self.experiment.win,"Please type your answer to the question above. Don't worry about upper/lowercase",pos=[0,100],color="gray",scale=.7)
+        [s.draw() for s in stimToDraw]
 
         #newText is a function in stimPresPsychopy.. just creates a psychopy text obj
-        responseReminder.setAutoDraw(True)
         self.experiment.win.flip()
         while not responded: #collect one letter response
-            stimToDraw.draw()
+            [s.draw() for s in stimToDraw]
             for key in event.getKeys():
                 if key in ['enter','return']:
                     responded = True
@@ -205,11 +209,10 @@ class ExpPresentation(trial):
                 else:
                     print key
                 respText.setText(response)
-                stimToDraw.draw()
+                [s.draw() for s in stimToDraw]
                 respText.draw()
                 self.experiment.win.flip()
         print 'given:', correctString, ' responded: ',response, SequenceMatcher(None,correctString.lower(),response.lower()).ratio()
-        responseReminder.setAutoDraw(False)
         return [response, SequenceMatcher(None,correctString.lower(),response.lower()).ratio()]
 
     def presentTestTrial(self, whichPart, curTrial, curTrialIndex):
@@ -323,7 +326,7 @@ class ExpPresentation(trial):
                 targetPic.setPos(self.forcedChoiceLocations[targetLocationName])
                 foilPic.setPos(self.forcedChoiceLocations[foilLocationName])
 
-                setAndPresentStimulus(self.experiment.win, [self.promptLeftRightResponse, targetPic, foilPic])
+                setAndPresentStimulus(self.experiment.win, [self.leftRightPrompt, targetPic, foilPic, self.leftRightResponseKeyReminder])
 
                 correctLocationResp = curTrial['whichTarget']
                 if self.experiment.inputDevice == 'keyboard':
@@ -341,7 +344,7 @@ class ExpPresentation(trial):
             isTargetLocationCorrect = 'NA'
 
             # 11. Remember target name
-            stimToDraw = self.promptTextResponse
+            stimToDraw = [self.promptTextResponse, self.frame]
             [textEntry, similarity] = self.collectWordResponse(stimToDraw, curTrial['targetName'])
         else:
             textEntry = 'NA'
