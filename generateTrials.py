@@ -128,23 +128,17 @@ def main(trialsFileName, seed):
                 random.shuffle(targetNameList)
                 targetName = targetNameList.pop()
             curTrial['targetName'] = targetName
+            
+            targetFile, foilFile = chooseTargetAndFoil(targetName, targets)
+            curTrial['targetFile'] = targetFile
+            curTrial['foilFile'] = foilFile
+            curTrial['whichTarget'] = random.choice(['left', 'right'])
 
             # set the parameters for target present|absent trials
             if curTrial['isTargetPresent'] == 1:
-                targetFile, foilFile = chooseTargetAndFoil(targetName, targets)
-                targetPos = random.choice([2, 3, 4, 5])
-                whichTarget = random.choice(['left', 'right'])
-
-                curTrial['targetFile'] = targetFile
-                curTrial['foilFile'] = foilFile
-                curTrial['targetPos'] = targetPos
-                curTrial['whichTarget'] = whichTarget
+                curTrial['targetPos'] = random.choice([2, 3, 4, 5])
             else:
-                stringForNAValue = 'NA'
-                curTrial['targetFile'] = stringForNAValue
-                curTrial['foilFile'] = stringForNAValue
                 curTrial['targetPos'] = -1
-                curTrial['whichTarget'] = stringForNAValue
 
             # determine pictures in the sequence
             for picPos in [1, 2, 3, 4, 5, 6]:
