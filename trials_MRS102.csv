@@ -1,0 +1,135 @@
+part,blockNum,targetName,targetFile,foilFile,whenTargetName,isMask,whenMask,picDurationType,picDurationSec,targetPos,picFile1,picFile2,picFile3,picFile4,picFile5,picFile6,isTargetPresent,whichTarget
+practice,-1,glass,glass2,glass1,before,1,before,long,0.083,4,22827408.thl,APLAQUE,Aegyptianst20,glass2,ACANE2,Afrenchtoast5,1,right
+practice,-1,pencil sharpener,pencilsharpener2,pencilsharpener1,before,1,before,long,0.083,4,AWEIGHT11,AGONG12,26374798.thl,pencilsharpener2,zip-a,ACEREAL,1,left
+practice,-1,can opener,canopener1,canopener2,before,0,before,long,0.083,5,ABELL7,26554880.thl,26545643.thl,26374346.thl,canopener1,Acrib12,1,right
+practice,-1,water bottle,waterbottle1,waterbottle2,before,0,before,long,0.083,2,shavingcream01,waterbottle1,ACHAIR,Abandleaders2,AASPHALT,Aleatherbeltp,1,right
+practice,-1,park meter,parkmeter2,parkmeter1,before,0,before,long,0.083,2,ADRIARRA2,parkmeter2,Akeyboard3,APHARAOH,AHUNTVES2,Aleaf75,1,left
+practice,-1,rake,rake1,rake2,before,1,before,long,0.083,5,ABROOCH41,AGHOST,AFIGHTP16,AFBLADE,rake1,tires,1,left
+test,0,notebook,notebook1,notebook2,after,0,after,long,0.083,2,26391173.thl,notebook1,Asantaclaus2,AEXERCBIK,8255336.thl,Aantiquebuck2,1,right
+test,0,headphones,NA,NA,after,0,after,long,0.083,-1,Asign7,AWINTGLO3,Atintelephone,APARKMET6,Aclamp42,AHONEYSTI,0,NA
+test,0,microwave,NA,NA,after,1,after,long,0.083,-1,Ascarf3,AMICROWA2,26427111.thl,AMAILBO28,ACOLFILT5,Atool221,0,NA
+test,0,bell,bell2,bell1,after,1,after,long,0.083,4,23048010.thl,Apokerchips3,AFIREPANT,bell2,AANTSTOV6,ACROWNPEN,1,left
+test,0,menorah,menorah1,menorah2,after,1,after,long,0.083,3,AMAKEUPMI,AGERMANH4,menorah1,matchbook,26370445.thl,Abloodorange,1,right
+test,0,balloon,balloon1,balloon2,after,0,after,long,0.083,5,26373195.thl,23048010.thl,Abreastpump2,bobbypins,balloon1,AHEATER,1,left
+test,0,grapes,grape2,grape1,after,0,after,long,0.083,3,ACLAM,26439074.thl,grape2,ATELEBO13,batslcshi,APIESERVE,1,left
+test,0,camera,NA,NA,after,0,after,long,0.083,-1,22921112.thl,Abeverageingl,31023139.thl,AHEADLIG9,matchbook,8258244.thl,0,NA
+test,0,santa hat,santahat1,santahat2,after,1,after,long,0.083,4,Azebra8,ABARPEAR,26379570.thl,santahat1,ACAMPSTO7,ACAROUSE2,1,right
+test,0,pliers,pliers2,pliers1,after,1,after,long,0.083,3,AWASHMAC5,ABABYCUP3,pliers2,AJEWELBO3,Abinder6,8255981.thl,1,left
+test,0,chapstick,chapstick1,chapstick2,after,1,after,long,0.083,3,AARTOOTH2,Atropicalpine,chapstick1,26467443.thl,AOVENMIT5,26372690.thl,1,right
+test,0,starfish,starfish1,starfish2,after,0,after,long,0.083,4,Atoychestfor3,railroadblock,A52ZX,starfish1,Areceptacle3,APOTPBAG2,1,left
+test,0,cooking pot,cookingpot1,cookingpot2,after,0,after,long,0.083,4,makeupfoundation,ringbox03,snail,cookingpot1,ACPU2,26428576.thl,1,left
+test,0,sugar,NA,NA,after,1,after,long,0.083,-1,sandcastle,Acactusplant,AANTOAST3,26432173.thl,ABABYSPOO,26374135.thl,0,NA
+test,0,key,key2,key1,after,1,after,long,0.083,2,Acoral7,key2,Arooster15,26376346.thl,sntslrc,Aornamentalt5,1,left
+test,0,log,log1,log2,after,1,after,long,0.083,5,Azebratoy2,AMANCLIP5,batteries-a,ABROCHETT,log1,Abootbinding,1,right
+test,0,folder,folder2,folder1,after,0,after,long,0.083,2,AGLASSCAS,folder2,Ataco,Aeasteregg14,ADART3,lollipops,1,right
+test,0,bread,bread1,bread2,after,0,after,long,0.083,3,batslct,045,bread1,pacifierthermometer,26369923.thl,Afoodproces27,1,right
+test,0,laptop,laptop2,laptop1,after,1,after,long,0.083,4,Abagofherbs,8068401.thl,AGAME,laptop2,sportsillustrated,ASEWING,1,left
+test,0,yarn,yarn1,yarn2,after,0,after,long,0.083,2,22911500.thl,yarn1,AASPHEQUA,chocolatepowder,26419670.thl,Agiftbag20,1,right
+test,0,horn,horn1,horn2,after,1,after,long,0.083,3,AFOODTAB2,slide,horn1,AJEWELBO3,gingerbreadcookie,AARTPLANT,1,left
+test,0,toolbox,toolbox1,toolbox2,after,0,after,long,0.083,3,Aeggcup224,Acrayonsinabo,toolbox1,ASALABOW4,dvdmovie,26467460.thl,1,right
+test,0,cereal,cereal1,cereal2,after,0,after,long,0.083,2,ATIMECLO3,cereal1,ARAILLIGH,26369923.thl,Abackpack11,Ababytableand,1,left
+test,0,menu,menu2,menu1,after,1,after,long,0.083,4,Atool221,26433387.thl,26427867.thl,menu2,Akitchensinka,whitemalerobe,1,left
+test,0,breadbox,breadbox2,breadbox1,after,0,after,long,0.083,5,Aconferencer3,AANTMILK,ADINROO16,AWHISBARR,breadbox2,A_flower,1,right
+test,0,pacifier,NA,NA,after,1,after,long,0.083,-1,AANTTRUCK,ABALLBEAR,B_orange,10049193.thl,ADRESS2,Atoyball,0,NA
+test,0,dryer,NA,NA,after,1,after,long,0.083,-1,26437068.thl,APIPEST18,AROUNDFR3,26437080.thl,Apulley71,26685948.thl,0,NA
+test,0,hourglass,hourglass2,hourglass1,after,1,after,long,0.083,2,Acarjack2,hourglass2,Abat5,sportsbasket,chunkysoup,AROCKET20,1,right
+test,0,puppet,NA,NA,after,0,after,long,0.083,-1,Amonkey5,AKNEEHAMR,AKEYHOL10,Agardeningrak,ACAMLENSE,Ascanner11,0,NA
+test,0,mailbox,mailbox1,mailbox2,after,0,after,long,0.083,3,ATHERMO4,ADECKCARD,mailbox1,AMANJUI2,AABSTRACT,Apedestal3,1,right
+test,0,mixer,mixer2,mixer1,after,1,after,long,0.083,5,AHEATER,Abasketofbrea,Adicecupandb5,AHEDGEHOG,mixer2,Atoywheels,1,left
+test,0,flask,NA,NA,after,0,after,long,0.083,-1,Aleatherpenc9,elecmap,AINDIAMA3,AALFALFA,ASATELLIT,26421538.thl,0,NA
+test,1,remote,remote2,remote1,after,0,after,short,0.025,5,26374767.thl,Abrickhomeand,ARUSH,ALITTERB2,remote2,Aantelopesku5,1,right
+test,1,feather,feather1,feather2,after,1,after,short,0.025,3,Abowloffruit4,ATOILBAG2,feather1,Agraduationh2,playdoh,Aboot9,1,left
+test,1,scratchcard,scratchcard2,scratchcard1,after,1,after,short,0.025,3,AFUNNEL4,Afitting3,scratchcard2,Apercussioni3,ABLOODCEA,8027656.thl,1,left
+test,1,earbuds,earbuds2,earbuds1,after,1,after,short,0.025,2,ACURLER,earbuds2,22875816.thl,26373195.thl,Abackpack11,Abreastpump2,1,left
+test,1,kettle,NA,NA,after,1,after,short,0.025,-1,ACENTRIF5,26374787.thl,Abicyclehand5,Aacupuncture2,8065674.thl,Aclamp42,0,NA
+test,1,pizza,pizza2,pizza1,after,1,after,short,0.025,3,22925624.thl,26375982.thl,pizza2,Abicyclepump2,22911500.thl,Acreamer35,1,right
+test,1,hose,hose1,hose2,after,1,after,short,0.025,3,26425370.thl,Amountaingoa2,hose1,8078142.thl,AANTLION2,Achildtoy2,1,left
+test,1,turtle,NA,NA,after,0,after,short,0.025,-1,ARIBBON9,8068401.thl,Aseal3,ASALABOW4,dftslpi,Atable132,0,NA
+test,1,scanner,scanner2,scanner1,after,1,after,short,0.025,3,ATAPEDIS7,Aflowerpot9,scanner2,AOLDBAT2,Acamerabag,26686595.thl,1,right
+test,1,picture frame,pictureframe1,pictureframe2,after,1,after,short,0.025,4,Aearsyringe,AWASHRACK,AWISHWELL,pictureframe1,Acanopener5,ipod01,1,left
+test,1,hot air balloon,hotairballoon2,hotairballoon1,after,1,after,short,0.025,2,Aantiquerota7,hotairballoon2,ringbox03,APLASCONT,ADENSYRIN,26433942.thl,1,right
+test,1,soap dispenser,soapdispenser1,soapdispenser2,after,0,after,short,0.025,4,26772997.thl,Acookiejar14,AFISH20,soapdispenser1,ATAPEDIS7,Akiddcup2,1,right
+test,1,coins,coins1,coins2,after,0,after,short,0.025,4,ASTEPPER,Abagofherbs,Aallterrain10,coins1,ATHERMO12,Achest20,1,right
+test,1,tricycle,NA,NA,after,0,after,short,0.025,-1,AARTIHAN5,8024092.thl,ATOWRACK3,ALEGCAST3,22827276.thl,AFOOTST11,0,NA
+test,1,soccer ball,soccerball2,soccerball1,after,0,after,short,0.025,4,APIPE8,AOVALFRAM,10050937.thl,soccerball2,ABARPEAR,AARMYTRUK,1,left
+test,1,donut,donut2,donut1,after,0,after,short,0.025,3,8255336.thl,Acreamer35,donut2,Acheque,APHARAOH,26427983.thl,1,right
+test,1,sponge,NA,NA,after,1,after,short,0.025,-1,Abreakpl2,ACOOKCUTT,potatomr,AAGATE,Arunningshoe4,26372669.thl,0,NA
+test,1,cheese and crackers,NA,NA,after,1,after,short,0.025,-1,Alifeves2,26379011.thl,ABLACKB12,22849284.thl,9821274.thl,AHCONGADR,0,NA
+test,1,globe,globe1,globe2,after,0,after,short,0.025,5,AEXERCBIK,Aeiffeltower2,ARECORDSY,Ahotwaterbot2,globe1,Acablelatch,1,right
+test,1,helmet,helmet1,helmet2,after,1,after,short,0.025,3,Ahappbirt,Aclothespin2,helmet1,ACHIPROL2,AMILPHONE,26377777.thl,1,left
+test,1,shoe,shoe2,shoe1,after,0,after,short,0.025,3,Aalmond4,26389125.thl,shoe2,8026084.thl,Arecordplaye2,pacifierthermometer,1,left
+test,1,teapot,teapot2,teapot1,after,0,after,short,0.025,3,Abox80,ATELEBO13,teapot2,AGLASSCAS,moneyslotmachine,Aseat3,1,left
+test,1,juice,juice2,juice1,after,0,after,short,0.025,5,hottub,AHOTPAD4,26391514.thl,AANTIQTHE,juice2,Abucketwithcl,1,left
+test,1,mug,mug1,mug2,after,0,after,short,0.025,5,ATEETH7,ABAPITCHS,ATRUNK15,batteries-a,mug1,ABOOK23,1,left
+test,1,fan,fan2,fan1,after,1,after,short,0.025,4,ACANDLE30,AKNIFECOL,ASWANWHIT,fan2,Agreenleaf3,26425025.thl,1,right
+test,1,kayak,kayak2,kayak1,after,0,after,short,0.025,3,Abicyclepump2,Aplasticbot10,kayak2,DSCN3757-sm,ASALAMI,tuba1,1,left
+test,1,razor,razor1,razor2,after,1,after,short,0.025,3,AIVORSUIT,AWALKER11,razor1,supersmilefloss,AANTRAD24,orientalvase,1,right
+test,1,book,NA,NA,after,1,after,short,0.025,-1,Aladder2,Atoymerrygoro,Atoyparrot2,26434233.thl,AMUFFIPAN,Aintercom6,0,NA
+test,1,chocolate cake,chocolatecake2,chocolatecake1,after,0,after,short,0.025,3,ABULLMASK,Afirstaidkit3,chocolatecake2,ACLOSET4,22827540.thl,Acrib12,1,left
+test,1,phone,phone2,phone1,after,1,after,short,0.025,4,Aglass58,ACUSHIO60,turnip,phone2,elecmap,26394018.thl,1,right
+test,1,cabbage,NA,NA,after,0,after,short,0.025,-1,APUMPCOOK,A_teabag,22826748.thl,26439898.thl,Abottle98,26434250.thl,0,NA
+test,1,train,NA,NA,after,0,after,short,0.025,-1,BeautyNBeast,ACIGCUTT,AELEPHAN7,Akangarooandb,22911500.thl,AAFRICI13,0,NA
+test,2,fishbowl,fishbowl2,fishbowl1,before,1,before,long,0.083,5,26421106.thl,AEAREXAM2,sandbox,23077768.thl,fishbowl2,26433592.thl,1,left
+test,2,toilet,NA,NA,before,1,before,long,0.083,-1,visacard,26374767.thl,ATALSTAN3,AELECRAZ7,ABOY,Ahat47,0,NA
+test,2,tongs,tongs1,tongs2,before,0,before,long,0.083,5,AROBES4,sausage,8058011.thl,ASTEAMER4,tongs1,Atrafficsign2,1,right
+test,2,lock,lock1,lock2,before,0,before,long,0.083,4,Aconferencer3,Atoycoffeepo2,Awoodenegg,lock1,Achick9,26442719.thl,1,right
+test,2,car,car2,car1,before,0,before,long,0.083,4,ACLOSET4,AMICRO67,ALAZQUART,car2,ABAPITCHS,Atoybucketan4,1,left
+test,2,muffin,muffin1,muffin2,before,0,before,long,0.083,2,Aoutdoorhalo2,muffin1,E_statue,AWATERJU3,AHIBACHI,22825932.thl,1,left
+test,2,suitcase,suitcase2,suitcase1,before,0,before,long,0.083,3,Amonitor10,26434250.thl,suitcase2,pencil-a,Acomputer9,26428540.thl,1,left
+test,2,stone archway,stonearchway1,stonearchway2,before,1,before,long,0.083,5,AROCKCH27,Awindtoy5,chocolatepowder,Acroissant,stonearchway1,Amannequin2,1,left
+test,2,chip,NA,NA,before,0,before,long,0.083,-1,26463767.thl,ATOOTHBR3,ABUSINEST,Apilldispens3,AGARLICCO,ABABYSH33,0,NA
+test,2,traffic cone,trafficcone1,trafficcone2,before,1,before,long,0.083,3,ABUSINEST,ADOGSNACK,trafficcone1,ABABYDOLL,ATOASTOV2,launmower,1,right
+test,2,soap,soap2,soap1,before,0,before,long,0.083,3,AREDROSE8,AMETICUBE,soap2,Adresser11,ADRYWOOD,AASPHALT,1,left
+test,2,backpack,backpack2,backpack1,before,1,before,long,0.083,5,Afrenchtoast5,Aconchshe,26375896.thl,Atray26,backpack2,8026164.thl,1,right
+test,2,stapler,stapler1,stapler2,before,1,before,long,0.083,4,26374346.thl,eutslfl,ATISSUE,stapler1,ADOORHAN8,ADARKLAMP,1,left
+test,2,barrel,barrel1,barrel2,before,0,before,long,0.083,4,hotgreenpepper,8257947.thl,26372237.thl,barrel1,26379612.thl,26440073.thl,1,right
+test,2,ladder,ladder2,ladder1,before,0,before,long,0.083,4,dftslpi,Akangarooandb,26372465.thl,ladder2,AEMERGLI4,Aspraybottle4,1,left
+test,2,cup,cup2,cup1,before,1,before,long,0.083,2,ASAFE,cup2,Acactus58,AGLASSTRO,ABUFFALO,B_makeupbag,1,right
+test,2,apple,NA,NA,before,0,before,long,0.083,-1,8029703.thl,AARTDUCK3,22825932.thl,26437491.thl,Aclock261,Atwowayradio2,0,NA
+test,2,chocolate bar,chocolatebar2,chocolatebar1,before,0,before,long,0.083,4,Heatpad,AANTIRO13,AAIRPRES4,chocolatebar2,kimono,eutslfl,1,left
+test,2,lei,lei1,lei2,before,1,before,long,0.083,3,ASCYTHE7,ACUTLERYB,lei1,Awindmill3,Abasketandch2,cranemachine,1,left
+test,2,bathing suit,bathingsuit2,bathingsuit1,before,0,before,long,0.083,5,sprinkler,AJOYSTIC1,A95CHEROK,AWALKMAN2,bathingsuit2,Aleopard19,1,left
+test,2,basket,basket1,basket2,before,1,before,long,0.083,4,Asword138,Agnu,ANWSPAPER,basket1,Acroissant,AWOODSPO3,1,right
+test,2,wine,wine1,wine2,before,1,before,long,0.083,2,AASPHALT,wine1,ACOWBOYH3,AHEADLI18,26684634.thl,Aleatherpenc9,1,right
+test,2,tictacs,tictacs2,tictacs1,before,1,before,long,0.083,5,igloo,Aplastictestt,Akangarooandb,Arecyclingbox,tictacs2,E_tractor,1,left
+test,2,gardening hoe,NA,NA,before,1,before,long,0.083,-1,Aadjustablec2,Aclock285,Afeatherhat,AFLOURSCO,ASLED7,ACROQUET2,0,NA
+test,2,guitar,guitar1,guitar2,before,0,before,long,0.083,5,Ablackma3,Adiamondring3,ABAKINGPA,Acarjack2,guitar1,ABUILDAR4,1,right
+test,2,watch,NA,NA,before,1,before,long,0.083,-1,26772987.thl,AMILMARK2,ACEILHOOK,E_tractor,AEAREXAM2,AMAGGLASS,0,NA
+test,2,bracelet,bracelet1,bracelet2,before,1,before,long,0.083,3,Atintelephone,skateboard,bracelet1,APOTPBAG2,Atool120,moistureproduct,1,left
+test,2,wheelchair,NA,NA,before,1,before,long,0.083,-1,JU3VU,Agluegun,AGARDHOSE,AANTICOT,Areceptacle3,AGUINEAP2,0,NA
+test,2,dog,NA,NA,before,0,before,long,0.083,-1,ASPRITZER,ALAMP,Afeatherdust2,ASTENORA2,26432899.thl,woodvase,0,NA
+test,2,stuffed rabbit,stuffedrabbit2,stuffedrabbit1,before,0,before,long,0.083,4,AANTMILK,kermitthefrog,Acomputerpro3,stuffedrabbit2,ACAMLENSE,Abrasscr2,1,right
+test,2,gift box,giftbox2,giftbox1,before,1,before,long,0.083,2,dvdmovie,giftbox2,Astaircase2,Acactus58,AWALKMAN2,ACOWCREAM,1,left
+test,2,candy,NA,NA,before,0,before,long,0.083,-1,Acementfinish,footballhelmet,9816397.thl,igloo,Ababtoy13,Achickendinne,0,NA
+test,3,corkscrew,corkscrew1,corkscrew2,before,1,before,short,0.025,4,Atoydrill4,AJEWISHTA,ALINTREMO,corkscrew1,ALAMP45,footballhelmet,1,left
+test,3,scroll,scroll2,scroll1,before,0,before,short,0.025,3,Aancientston3,buffalowings,scroll2,8252065.thl,Abeetle10,Afoodproces13,1,left
+test,3,scissors,NA,NA,before,1,before,short,0.025,-1,ASALTPEPP,AELECRAZ7,Askirt3,Agratedchees2,Aknife76,AMEASDEVI,0,NA
+test,3,pie,pie1,pie2,before,1,before,short,0.025,2,22851864.thl,pie1,26420830.thl,Aflowerpot15,Acampingtoolk,AAPPCOVE2,1,left
+test,3,toy airplane,toyairplane2,toyairplane1,before,1,before,short,0.025,4,ARICE2,ASAFE,ARETRACT2,toyairplane2,AOUTHOUSE,8258244.thl,1,right
+test,3,plant,plant2,plant1,before,0,before,short,0.025,2,Acleaningpro6,plant2,ASKIHOLD,ALITTERB2,saltpeppershakerjpg,gumballmachine,1,right
+test,3,calculator,calculator1,calculator2,before,0,before,short,0.025,3,whiteboard,Acocktailumb4,calculator1,Adress6,AHOUSBOA3,26384637.thl,1,left
+test,3,cookie,cookie1,cookie2,before,0,before,short,0.025,3,AARROWS2,26375702.thl,cookie1,scrunchie,ACAPTAIN9,ATOWELRA3,1,right
+test,3,bucket,bucket2,bucket1,before,1,before,short,0.025,5,broccoli,Apaintedwood3,butterflycross-stitch,ADIPPER6,bucket2,AHEADLIG9,1,left
+test,3,acoustic guitar,acousticguitar1,acousticguitar2,before,1,before,short,0.025,2,Agiftbag20,acousticguitar1,ABROOCH52,Asign7,8255030.thl,Adigitalcamer,1,right
+test,3,baseball glove,baseballglove1,baseballglove2,before,0,before,short,0.025,4,26428110.thl,AOLDBAT2,Aenvelope2,baseballglove1,Abugle12,Aalligator4,1,right
+test,3,abacus,abacus1,abacus2,before,0,before,short,0.025,5,A56THUND4,ABALLER29,AICEAXE2,26384554.thl,abacus1,Aboot9,1,right
+test,3,umbrella,umbrella2,umbrella1,before,1,before,short,0.025,3,marshmallows,ALOVSEA10,umbrella2,babyseatback,ignitionkey01,Aantiquevege3,1,right
+test,3,poker chips,pokerchips2,pokerchips1,before,0,before,short,0.025,2,Aeggcup224,pokerchips2,ABARBCHA3,Aoutdoorhalo2,Aturban,ADOCKPOST,1,left
+test,3,cell phone,NA,NA,before,1,before,short,0.025,-1,AMILPHONE,ABOY,ABLUBLOTT,AEAREXAM2,AWASHPART,26424443.thl,0,NA
+test,3,trophy,trophy1,trophy2,before,1,before,short,0.025,3,ABATHTAP,AHEADLIG9,trophy1,ABIRDHOU9,26433686.thl,ABATHTAP,1,left
+test,3,cabinet,cabinet1,cabinet2,before,0,before,short,0.025,3,Atropicalpine,Awaffle3,cabinet1,Apercussion16,airbottle1,AMALLET13,1,left
+test,3,potato chips,potatochips2,potatochips1,before,1,before,short,0.025,5,APOTGOLD2,APALLETT2,26427983.thl,ACHIPROL2,potatochips2,headcomb1,1,left
+test,3,tape dispenser,NA,NA,before,1,before,short,0.025,-1,Asafetybelt,ATIE16,ADEEPFRY5,A56THUND4,Afoodproces27,Atoyelephant,0,NA
+test,3,highlighter,highlighter1,highlighter2,before,0,before,short,0.025,2,Acompactdisc2,highlighter1,22949719.thl,Achowchowdog,26424291.thl,AHOSPBED,1,left
+test,3,string,string1,string2,before,0,before,short,0.025,5,Apyramid3,Aantiquejuke2,ABAT,Aconcreteblo3,string1,Acampingcoffe,1,left
+test,3,icecream,NA,NA,before,0,before,short,0.025,-1,ACOMB11,Azucchini9,35310232.thl,AJUICER,ACOLUMN5,Avacuum13,0,NA
+test,3,tissues,tissues1,tissues2,before,1,before,short,0.025,3,26418799.thl,darkwador,tissues1,gingerroot,26377631.thl,stickcheese,1,right
+test,3,peanut butter,peanutbutter2,peanutbutter1,before,0,before,short,0.025,3,26377601.thl,AELEAGEN3,peanutbutter2,Aclamp55,AANTTRUCK,36407647.thl,1,right
+test,3,piano,NA,NA,before,1,before,short,0.025,-1,Acardboardpan,silver-bowl-small,ACROQUET2,Atoytaxi3,ATOOHOLDE,Atoydoll12,0,NA
+test,3,animal skull,NA,NA,before,0,before,short,0.025,-1,ADRIARRA2,Awoodplaner2,Agreenlighter,AFISHNET3,AWINTERH2,Ametalstool2,0,NA
+test,3,bottle,NA,NA,before,0,before,short,0.025,-1,AMECHHAN4,Agoattoy7,Aadvcalen,26427906.thl,ASPOONS2,Astonehome,0,NA
+test,3,bicycle,NA,NA,before,0,before,short,0.025,-1,ADIPPER6,AFUNNEL4,22949719.thl,Aframe196,ASTENORA2,23019499.thl,0,NA
+test,3,gummy candy,gummycandy1,gummycandy2,before,1,before,short,0.025,4,Achickendinne,Awildberries,Alatch7,gummycandy1,Ahandbag55,36407726.thl,1,right
+test,3,clock,clock1,clock2,before,0,before,short,0.025,2,razorscooter,clock1,ASCSIPORT,sphinx,26386846.thl,VMS7B,1,right
+test,3,typewriter,typewriter2,typewriter1,before,1,before,short,0.025,4,ACLOSET4,pinecone02,AWEDCOU19,typewriter2,Aclock213,gymvaulting,1,right
+test,3,cow,cow1,cow2,before,1,before,short,0.025,3,26687931.thl,blackjackcasinotable,cow1,A_flower,AFETTUCI2,26688546.thl,1,left
